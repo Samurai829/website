@@ -218,7 +218,6 @@ body.dark-theme {
 
 /*============================== LOADER ==================================*/
 .loader_container {
-  background: var(--body-dark);
   display: flex;
   align-items: center;
   justify-content: center;
