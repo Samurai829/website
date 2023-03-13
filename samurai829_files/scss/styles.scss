@@ -428,7 +428,7 @@ button {
         z-index: var(--z-back);
     }
     &__docker{
-        width: 95%;
+        width: 90%;
     }
     &__terraform{
         width: 85%;
@@ -437,11 +437,14 @@ button {
         width: 50%;
     }
     &__aws{
-        width: 85%;
+        width: 80%;
     
     }
     &__azure{
         width: 50%;
+    }
+    &__git{
+        width: 70%;
     }
     &__img{
         border-radius: .5rem;
