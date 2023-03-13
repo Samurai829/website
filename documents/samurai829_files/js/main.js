@@ -125,5 +125,5 @@ const sr = ScrollReveal({
 sr.reveal('.home__data, .section_title, .valor_title',{}); 
 sr.reveal('.home__img, .projects__subtitle, .valor__text, .projects__text',{delay: 200}); 
 sr.reveal('.home__social-icon',{ interval: 200}); 
-sr.reveal('.projects__data, .filters__content, .web__video' ,{interval: 200}); 
+sr.reveal('.projects__data, .filters__content, .web_video' ,{interval: 200}); 
 sr.reveal('.logo__section' ,{delay: 10}); 
