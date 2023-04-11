@@ -521,6 +521,19 @@ hr {
   filter: drop-shadow(15px 10px 15px #0000005e);
 }
 
+.certified__container {
+  align-items: center;
+  justify-items: center;
+  display: flex;
+}
+
+.certified__img {
+  width: 200px;
+}
+
+.certified_img_shadow {
+  filter: drop-shadow(15px 10px 15px #0000005e);
+}
 
 /*=============== FILTERS TABS===============*/
 .filters__content {
