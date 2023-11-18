@@ -518,7 +518,7 @@ hr {
 }
 
 .about_img_shadow {
-  filter: drop-shadow(15px 10px 15px #0000005e);
+  filter: drop-shadow(5px 10px 10px #0000005e);
 }
 
 .certified__container {
@@ -645,7 +645,6 @@ hr {
   padding: .5rem 1rem;
   margin-bottom: var(--mb-4);
   border-radius: .5rem;
-  box-shadow: 1px 2px 8px #0c0717;
 }
 .skills__icon {
   font-size: 2rem;
@@ -666,48 +665,51 @@ hr {
   height: .25rem;
   border-radius: .5rem;
   z-index: var(--z-back);
+  box-shadow: 1px 3px 6px #17131fcc;
 }
 
 .skills__bar2 {
   position: absolute;
   left: 0.1;
   bottom: 0;
-  background-color: rgb(0, 255, 34);
+  background-color: #ffa600;
   height: .25rem;
   border-radius: .5rem;
   z-index: var(--z-back);
+  box-shadow: 1px 3px 6px #17131fcc;
 }
 
 /*=========== DEVOPS ===========*/
 .skills__docker {
-  width: 90%;
-}
-.skills__terraform {
-  width: 85%;
+  width: 80%;
 }
 .skills__kubernetes {
+  width: 70%;
+}
+.skills__ansible {
   width: 50%;
+}
+.skills__terraform {
+  width: 90%;
 }
 .skills__aws {
   width: 80%;
 }
-.skills__azure {
-  width: 50%;
-}
-.skills__git {
-  width: 70%;
-}
-/*====== TECHNICAL SUPPORT ======*/
-.skills__hardware {
-  width: 90%;
-}
 .skills__network {
   width: 60%;
 }
-.skills__dba {
+
+/*====== DEVELOPER ======*/
+.skills__git {
   width: 70%;
 }
+.skills__python {
+  width: 40%;
+}
 .skills__scripting {
+  width: 50%;
+}
+.skills__dba {
   width: 50%;
 }
 
@@ -742,12 +744,12 @@ hr {
 
 /*============================= PROYECTOS =================================*/
 .projects__container {
-  row-gap: 2rem;
+  row-gap: 3rem;
   text-align: center;
 }
 .projects__card {
   position: relative;
-  border-radius: 1rem;
+  border-radius: .5rem;
   overflow: hidden;
 }
 .projects__card img {
@@ -770,7 +772,7 @@ hr {
 }
 .projects__subtitle, 
 .projects__title {
-  color: #fff;
+  color: #ebebeb;
 }
 .projects__subtitle {
   font-size: var(--smaller-font-size);
@@ -828,10 +830,10 @@ hr {
 }
 .wrapper .icon .tooltip{
   position: absolute;
-  margin: 40px;
+  margin: 30px;
   top: 0;
   z-index: 0;
-  background: #fff;
+  background: rgb(97, 0, 223);
   color: #fff;
   padding: 8px 18px;
   font-size: 20px;
@@ -847,17 +849,18 @@ hr {
   opacity: 1;
   pointer-events: auto;
 }
-.icon .tooltip:before{
+/*.icon .tooltip::before{
   position: absolute;
   content: "";
   height: 15px;
   width: 15px;
   background: #fff;
   left: 50%;
-  bottom: -6px;
+  bottom: -7px;
   transform: translateX(-50%) rotate(45deg);
   transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+*/
 .wrapper .icon:hover span{
   color: #fff;
 }
@@ -866,34 +869,28 @@ hr {
   text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
 }
 .wrapper .linkedin:hover span,
-.wrapper .linkedin:hover .tooltip,
-.wrapper .linkedin:hover .tooltip:before{
-  background: #4265b1;
+.wrapper .linkedin:hover .tooltip{
+  background: #0099CC;
 }
-.wrapper .whatsapp:hover span,
-.wrapper .whatsapp:hover .tooltip,
-.wrapper .whatsapp:hover .tooltip:before{
-  background: #31be31;
+.wrapper .telegram:hover span,
+.wrapper .telegram:hover .tooltip{
+  background: #229ED9;
 }
-.wrapper .reddit:hover span,
-.wrapper .reddit:hover .tooltip,
-.wrapper .reddit:hover .tooltip:before{
-  background: #c24620;
+.wrapper .instagram:hover span,
+.wrapper .instagram:hover .tooltip{
+  background: linear-gradient(145deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
 }
 .wrapper .discord:hover span,
-.wrapper .discord:hover .tooltip,
-.wrapper .discord:hover .tooltip:before{
-  background: rgb(81, 146, 231);
+.wrapper .discord:hover .tooltip{
+  background: linear-gradient(135deg, #7289da 0%,#6679be 25%,#6478be 50%,#385583 75%,#2b3d58 100%);
 }
 .wrapper .hotmail:hover span,
-.wrapper .hotmail:hover .tooltip,
-.wrapper .hotmail:hover .tooltip:before{
-  background: #3083e1;
+.wrapper .hotmail:hover .tooltip{
+  background: linear-gradient(235deg, #3083e1 0%,#2773ca 25%,#226cc0 50%,#0a59b4 75%,#0a59b4 100%);
 }
 .wrapper .gmail:hover span,
-.wrapper .gmail:hover .tooltip,
-.wrapper .gmail:hover .tooltip:before{
-  background: #cc2020;
+.wrapper .gmail:hover .tooltip{
+  background: linear-gradient(135deg, #ff0000 0%,#eb0606 25%,#ce0707 50%,#b10a0a 75%,#800606 100%);
 }
 
 
@@ -953,7 +950,16 @@ background: rgb(0,0,0);
     row-gap: 2rem;
   }
   .home__img {
-    width: 150px;
+    width: 200px;
+  }
+  .about__img img {
+    width: 100px;
+    border-radius: .5rem;
+  }
+  .skills__container {
+    grid-template-columns: .7fr;
+    justify-content: center;
+    column-gap: .5rem;
   }
   .wrapper {
   display: flex;
@@ -975,8 +981,13 @@ background: rgb(0,0,0);
     margin-right: var(--mb-4);
   }
   .home__img {
+    width: 200px;
+    bottom: 30%;
+  }
+  .about__img img {
     width: 150px;
-    bottom: 25%;
+    border-radius: .5rem;
+    margin-right: 25px;
   }
   .about__container {
     grid-template-columns: repeat(2, 1fr);
@@ -1049,6 +1060,8 @@ background: rgb(0,0,0);
   }
   .about__img img {
     width: 300px;
+    border-radius: .5rem;
+    margin-right: 10px;
   }
   .skills__container {
     grid-template-columns: repeat(2, 1fr);
@@ -1076,6 +1089,11 @@ background: rgb(0,0,0);
   }
   .home__img {
     width: 450px;
+  }
+  .about__img img {
+    width: 350px;
+    border-radius: .5rem;
+    margin-right: 15px;
   }
   .projects__content {
     gap: 2rem 3rem;

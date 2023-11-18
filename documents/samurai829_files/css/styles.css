@@ -541,6 +541,12 @@ pre > code {
   filter: drop-shadow(5px 15px 10px #00000096);
 }
 
+.projects__img {
+  border-radius: 1.5rem;
+}
+.projects_img_shadow {
+  filter: drop-shadow(15px 10px 15px #0000005e);
+}
 
 
 /* ========================== PIE DE PAGINA ==============================*/
@@ -586,6 +592,16 @@ background: rgb(0,0,0);
   .wrapper {
   display: flex;
   } 
+  .projects__container {
+    grid-template-columns: .7fr;
+    justify-content: center;
+    column-gap: .5rem;
+  }
+  .projects__img {
+    border-radius: 1.3rem;
+    width: 140px; 
+    height: 90px; 
+  }
   .web__video {
     border-radius: 1.3rem;
     width: 140px; 
@@ -617,9 +633,14 @@ background: rgb(0,0,0);
     margin-bottom: .25rem;
   }
   .projects__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    text-align: initial;
+    grid-template-columns: .7fr;
+    justify-content: center;
+    column-gap: 1rem;
+  }
+  .projects__img {
+    border-radius: 1.3rem;
+    width: 220px; 
+    height: 160px; 
   }
   .web__video {
     border-radius: 1.3rem;
@@ -673,6 +694,17 @@ background: rgb(0,0,0);
     width: 675px;
     margin-bottom: .25rem;
   }
+  .projects__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    align-items: center;
+    text-align: initial;
+  }
+  .projects__img {
+    border-radius: 1.3rem;
+    width: 380px; 
+    height: 240px; 
+  }
   .web__video {
     border-radius: 1.3rem;
     width: 380px; 
@@ -700,9 +732,20 @@ background: rgb(0,0,0);
     width: 975px;
     margin-bottom: .25rem;
   }
+  .projects__img {
+    border-radius: 1.3rem;
+    width: 480px; 
+    height: 260px;
+  }
   .web__video {
     border-radius: 1.3rem;
     width: 480px; 
     height: 260px;
   }
+  .projects__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    align-items: center;
+    text-align: initial;
+  }  
 }
