@@ -427,8 +427,8 @@ pre > code {
 .home__img {
   position: absolute;
   right: 0;
-  bottom: 0;
-  width: 190px;
+  bottom: 0px;
+  width: 290px;
 }
 
 .home__blob {
@@ -437,6 +437,7 @@ pre > code {
 
 .home__blob-img {
   width: 360px;
+  bottom: 30px;
 }
 
 .img_shadow {
@@ -586,7 +587,8 @@ background: rgb(0,0,0);
     row-gap: 2rem;
   }
   .home__img {
-    width: 150px;
+    width: 100px;
+    margin-right: 1.5rem;
   }
   .about__text {
     width: 305px;
@@ -626,7 +628,8 @@ background: rgb(0,0,0);
     margin-right: var(--mb-4);
   }
   .home__img {
-    width: 150px;
+    width: 200px;
+    margin-right: 1rem;
     bottom: 25%;
   }
   .about__text {
@@ -690,7 +693,7 @@ background: rgb(0,0,0);
   }
   .home__img {
     width: 300px;
-    bottom: 10%;
+    bottom: 30%;
   }
   .about__text {
     justify-self: center;
@@ -727,6 +730,7 @@ background: rgb(0,0,0);
   }
   .home__img {
     width: 450px;
+    bottom: 20%;
   }
   .about__text {
     justify-self: center;
