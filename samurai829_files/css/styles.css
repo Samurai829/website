@@ -488,7 +488,7 @@ hr {
 
 /*=============== FILTERS===============*/
 .filters__content {
-  margin: 2rem 0 2.5rem;
+  margin: 2rem 0 1.5rem;
   background-color: #570dacab;
   padding: .375rem;
   border-radius: .75rem;
@@ -500,7 +500,7 @@ hr {
   width: 100%;
   border: none;
   outline: none;
-  padding: 1rem;
+  padding: .5rem;
   color: var(--title-color);
   font-size: var(--h3-font-size);
   font-family: var(--body-font);
@@ -523,7 +523,7 @@ hr {
 .softskills__title {
   font-size: var(--h3-font-size);
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 .softskills__subtitle {
   font-size: var(--normal-font-size);
@@ -554,13 +554,13 @@ hr {
 }
 
 .softskills__data i {
-  font-size: 2.3rem;
+  font-size: 1.3rem;
   color: var(--first-color);
 }
 .softskills__name {
   font-size: var(--h3-font-size);
-  font-weight: 700;
-  line-height: 38px;
+  font-weight: 600;
+  line-height: 28px;
   color: var(--title-color)
 }
 
@@ -750,7 +750,7 @@ hr {
   height: 60px;
   width: 60px;
   margin: 25px;
-  background: rgb(97, 0, 223);
+  background: linear-gradient(308deg, rgba(32, 0, 73, 0.84) 0%, rgba(62, 6, 114, 0.79)52%, rgba(69, 0, 148, 0.64) 100%);
   border-radius: 50%;
   position: relative;
   z-index: 2;
@@ -769,8 +769,8 @@ hr {
   margin: 30px;
   top: 0;
   z-index: 0;
-  background: rgb(97, 0, 223);
-  color: #fff;
+  background: rgb(59, 0, 126);
+  color: #ffffff;
   padding: 8px 18px;
   font-size: 20px;
   font-weight: 500;
@@ -786,7 +786,7 @@ hr {
   pointer-events: auto;
 }
 .wrapper .icon:hover span{
-  color: #fff;
+  color: #ececec;
 }
 .wrapper .icon:hover span,
 .wrapper .icon:hover .tooltip{
@@ -878,6 +878,11 @@ background: rgb(0,0,0);
     width: 90px;
     border-radius: .5rem;
   }
+  .filter__container {
+    grid-template-columns: .7fr;
+    justify-content: center;
+    column-gap: .5rem;
+  }
   .skills__container {
     grid-template-columns: .7fr;
     justify-content: center;
@@ -896,6 +901,16 @@ background: rgb(0,0,0);
 @media screen and (max-width: 395px) {
   .home {
     row-gap: 2rem;
+  }
+  .home__social {
+    padding-top: 0;
+    padding-bottom: 2rem;
+    flex-direction: row;
+    align-self: flex-end;
+  }
+  .home__social-icon {
+    margin-bottom: 0;
+    margin-right: var(--mb-4);
   }
   .home__img {
     width: 140px;
