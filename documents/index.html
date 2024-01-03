@@ -29,13 +29,17 @@
                     <img src="samurai829_files/img/icon.png" class="nav__img">
                 </div>
                 <div>
-                    <a href="https://samurai829.github.io/website/"class="nav__logo">Reymer Steven Garcia Acevedo</a>
+                    <a href="https://samurai829.github.io/website/"class="nav__logo">DOCUMENTACION</a>
                 </div>
 
                 <!--===== MENU =====-->
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="https://samurai829.github.io/website/" class="nav__link">Inicio</a></li>
+                        <li class="nav__item"><a href="https://samurai829.github.io/website/" class="nav__link">INICIO</a></li>
+                        <li class="nav__item"><a href="#iac1" class="nav__link">IAC V1</a></li>
+                        <li class="nav__item"><a href="#iac2" class="nav__link">IAC V2</a></li>
+                        <li class="nav__item"><a href="#website" class="nav__link">WEBSITE</a></li>
+                        <li class="nav__item"><a href="#docker" class="nav__link">DOCKER</a></li>
 
                     </ul>
                 </div>
@@ -72,7 +76,7 @@
             </section>
             
             <!--===== DOCUMENTACION =====-->
-            <section class="about section" id="about">
+            <section class="about section">
 
                 <h2 class="section_title">DOCUMENTACION</h2>
 
@@ -82,15 +86,15 @@
                     <div class="projects__img projects_img_shadow">
                         <img src="./samurai829_files/img/IAC.gif" alt="" class="projects__img">
                     </div>
-                    <div>
-                        <h2 class="projects__subtitle projects_shadow">PROYECTO 1: AWS Static Pages</h2>
+                    <div id="iac1">
+                        <h2 class="projects__subtitle projects_shadow">PROYECTO IAC: <span class="projects__subtitle_color">AWS Pages v1</span></h2>
                         <p class="projects__text">
                             Este proyecto fue implementado como objetivo personal para medir mis capacidades de desarrollo e implementación 
                             de distintas herramientas y servicios.
                         </p>
                         <p class="projects__text">
                             En la creacion de este proyecto uso la infraestructura de AWS (Amazon Web Services) y la herramienta Terraform para la 
-                            configuración de los servicios usados en la infraestructura todo esto mediante código o IAC (infrastructure  As Code).
+                            configuración de los servicios usados en la infraestructura todo esto mediante código o IAC (infrastructure As Code).
                         <p class="projects__text">
                             En este proyecto creo 2 servidores que alojan esta página web mediante contenedores usando Docker, la imagen usada 
                             para el contenedor usa una imagen base de Apache HTTP llamada Httpd con modificaciones para al momento de inicializar 
@@ -101,19 +105,36 @@
                             HTML.
                         </p>
                         <p class="projects__text">
-                            La elaboración fue realizada por servicios como AWS VPC (Virtual Private Cloud) para la red virtual 
+                            La elaboración fue realizada en servicios como AWS VPC (Virtual Private Cloud) para la red virtual 
                             en AWS usada para los servidores y servicios, AWS EC2 para la creacion de servidores o instancias en AWS y 
                             AWS ELB (Elastic Load Balancing) para la distribución de tráfico entrante entre servidores.
                         </p> 
                     </div>
 
-
+                    <div class="projects__img projects_img_shadow">
+                        <img src="./samurai829_files/img/IAC2.png" alt="" class="projects__img">
+                    </div>
+                    <div id="iac2">
+                        <h2 class="projects__subtitle projects_shadow">PROYECTO IAC: <span class="projects__subtitle_color">AWS Pages v2</span></h2>
+                        <p class="projects__text">
+                            Este proyecto fue implementado apartir de PROYECTO IAC: AWS PAGES v1 con el principio de simplificar el codigo y hacerlo 
+                            mas modular a la hora de realizar cambios en caso usar nuevamente esta configuracion.
+                        </p>
+                        <p class="projects__text">
+                            En la creacion de este proyecto uso los servicios de EC2, Elastic Load Balancing y VPC de AWS en conjunto de la herramienta 
+                            Terraform para la configuración de los servicios usados en la infraestructura todo esto mediante código o IAC (infrastructure As Code).
+                        <p class="projects__text">
+                            En este proyecto al igual que el original creo 2 servidores que alojan una página web mediante contenedores usando Docker. Su elaboración 
+                            fue realizada en servicios como AWS VPC (Virtual Private Cloud) para la red virtual privada, AWS EC2 (Elastic Compute Cloud) para la 
+                            creacion de las instancias en AWS y AWS ELB (Elastic Load Balancing) para la distribución de tráfico entrante entre servidores.
+                        </p> 
+                    </div>
                     <!--PROYECTO PORTFOLIO-->
                     <div class="video_shadow">
                         <iframe class="web__video" src="https://www.youtube.com/embed/bQd63hfTs0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
-                    <div>
-                        <h2 class="projects__subtitle projects_shadow">WEB Portfolio</h2>
+                    <div id="website">
+                        <h2 class="projects__subtitle projects_shadow">PROYECTO WEBSITE: <span class="projects__subtitle_color">Web Portfolio</span></h2>
                         <p class="projects__text">
                         Es una página el cual le he dedicado tiempo donde al día de hoy tiene una apariencia simple y elegante 
                         para las personas que accedan para ver la información.    
@@ -135,8 +156,8 @@
                   
                         <iframe class="web__video" src="https://www.youtube.com/embed/J-Eyma9kOt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div> 
-                    <div>
-                        <h2 class="projects__subtitle projects_shadow">CONTAINERS</h2>
+                    <div id="docker">
+                        <h2 class="projects__subtitle projects_shadow">PROYECTO DOCKER: <span class="projects__subtitle_color">Containers</span></h2>
                         <p class="projects__text">
                         Es un proyecto de CONTENEDORES DOCKER con servicios del Entorno DevOps y SRE, este proyecto tiene como 
                         principal tarea simplificar la instalación de cada herramienta para la ejecución y uso mediante Docker, 
