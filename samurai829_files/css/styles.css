@@ -30,6 +30,7 @@
   --normal-font-size: .938rem;
   --smaller-font-size: .75rem;
   /*===== Margenes =====*/
+  --mb-1: 0.5rem;
   --mb-2: 1rem;
   --mb-4: 2rem;
   --mb-5: 2.5rem;
@@ -230,7 +231,7 @@ body.dark-theme {
   border-top-color: #ffffff;
   border-top-color: #ffffff;
   border-radius: 50%;
-  animation: loader2 1.2s ease-in-out infinite;
+  animation: loader2 0.5s ease-in-out infinite;
 }
 
 @keyframes loader {
@@ -333,7 +334,7 @@ hr {
 
 
 .nav__item {
-  margin-bottom: var(--mb-4);
+  margin-bottom: 1rem;
   color: rgb(255, 255, 255);
 }
 .nav__link {
@@ -354,13 +355,38 @@ hr {
 }
 .nav__logo {
   color: rgb(255, 255, 255);
+  font-size: var(--h2-font-size);
 }
 .nav__toggle {
   color: var(--second-color);
   font-size: 1.5rem;
   cursor: pointer;
 }
+.nav__img {
+  width: 120px;
+  justify-items: left;
+  filter: drop-shadow(1px 2px 3px #000000b2);
+}
+.text__color {
+  color: #f58300;
+}
+.write {
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 3px solid;
+  width: 13ch;
 
+  animation: typing 6s steps(13),
+  blink .5s infinite step-end alternate;
+  overflow: hidden;
+}
+@keyframes typing {
+  from { width: 0;}
+}
+@keyframes blink {
+  50% {border-color: transparent;}
+}
 /*============================== MENU ===================================*/
 .active::after {
   position: absolute;
@@ -392,9 +418,6 @@ hr {
 }
 .home_title_shadow {
   filter: drop-shadow(0px 2px 2px #222222c0);
-}
-.home__title-color {
-  color: #f58300;
 }
 .home__social {
   display: flex;
@@ -456,6 +479,7 @@ hr {
 }
 .about__text {
   margin-bottom: var(--mb-4);
+  padding-left: 2rem;
 }
 .about__subtitle {
   margin-bottom: var(--mb-2);
@@ -465,7 +489,7 @@ hr {
 }
 .about__img img {
   width: 200px;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 .about_shadow {
   filter: drop-shadow(1px 1px 1px #00000086);
@@ -675,7 +699,12 @@ hr {
 }
 
 
-
+.icon__skills {
+  display: inline-block;
+  position: relative;
+  padding-right: 0.5rem;
+  width: 30px;
+}
 /*============================= PROYECTOS =================================*/
 .projects__container {
   row-gap: 3rem;
