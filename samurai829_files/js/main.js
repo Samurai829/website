@@ -13,15 +13,10 @@ const showMenu = (toggleId, navId) =>{
 showMenu('nav-toggle','nav-menu')
 
 /*=============== BLOCK CLICK ===============*/
-document .addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-});
-document .addEventListener("keydown", (e) => {
-    e.preventDefault();
-    if (e.keyCode == 123) {
-        return false;
-    }
-});
+document.addEventListener("contextmenu", (event) =>{
+
+    event.preventDefault()
+})
 
 
 
@@ -44,7 +39,6 @@ tabs.forEach(tab =>{
         tab.classList.add('filter-tab-active')
     })
 })
-
 
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
@@ -125,4 +119,4 @@ const sr = ScrollReveal({
 sr.reveal('.home__data, .section_title, .about__img, .valor_title, .skills__text, .certified__img',{}); 
 sr.reveal('.home__img, .valor__subtitle, .about__subtitle, .skills__title, .skills__subtitle, .valor__text, .projects__text,.about__text, .skills__img',{delay: 200}); 
 sr.reveal('.home__social-icon, .filters__content',{ interval: 200}); 
-sr.reveal('.skills__data, .projects__data, .projects__img, .contacts__social' ,{interval: 50}); 
+sr.reveal('.skills__data, .card__projects, .form__content, .contact__input' ,{interval: 50}); 
