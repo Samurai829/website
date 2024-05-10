@@ -119,4 +119,4 @@ const sr = ScrollReveal({
 sr.reveal('.home__data, .section_title, .about__img, .valor_title, .skills__text, .certified__img',{}); 
 sr.reveal('.home__img, .valor__subtitle, .about__subtitle, .skills__title, .skills__subtitle, .valor__text, .projects__text,.about__text, .skills__img',{delay: 200}); 
 sr.reveal('.home__social-icon, .filters__content',{ interval: 200}); 
-sr.reveal('.skills__data, .icon__skills, .card__projects, .projects_img, .form__content, .contact__input' ,{interval: 50}); 
+sr.reveal('.skills__data, .icon__skills, .card__projects, .form__content, .contact__input' ,{interval: 50}); 
