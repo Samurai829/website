@@ -18,8 +18,8 @@
   --text-color: hsl(var(--hue), 12%, 45%);
   --text-color-light: hsl(var(--hue), 8%, 75%);
   --text-color-lighten: hsl(var(--hue), 8%, 92%);
-  --body-light: linear-gradient(320deg, #9d98a1 10%, #c7c3cc 80%, #e0dde0 100%);
-  --body-dark: linear-gradient(319deg, rgb(21, 16, 24) 20%, rgb(31, 15, 41) 70%, rgb(65, 44, 76) 100%);;
+  --body-light: linear-gradient(320deg, #887e90 10%, #aea4ba 80%, #c6c6c6 100%);
+  --body-dark: linear-gradient(319deg, #140a19 100%,#2e2a31 23%);
   --container-color: rgb(255, 255, 255);
 
   /*===== Fuente y tipografia =====*/
@@ -249,7 +249,52 @@ body.dark-theme {
   }
 }
 
-
+.star {
+  background: grey;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  content: '';
+  border-radius: 100%;
+  transform: rotate(250deg);
+  opacity: 0.4;
+  animation-name: shimmer;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes shimmer {
+  from {
+    opacity: 0;
+ }
+  to {
+    opacity: 0.7;
+ }
+}
+.star1 {
+  top: 40%;
+  left: 50%;
+  animation-delay: 1s;
+}
+.star2 {
+  top: 60%;
+  left: 90%;
+  animation-delay: 3s;
+}
+.star3 {
+  top: 10%;
+  left: 70%;
+  animation-delay: 2s;
+}
+.star4 {
+  top: 90%;
+  left: 40%;
+}
+.star5 {
+  top: 20%;
+  left: 30%;
+  animation-delay: 0.5s;
+}
 
 /*============================== CODE ==================================*/
 code {
