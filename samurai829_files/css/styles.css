@@ -249,52 +249,7 @@ body.dark-theme {
   }
 }
 
-.star {
-  background: grey;
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  content: '';
-  border-radius: 100%;
-  transform: rotate(250deg);
-  opacity: 0.4;
-  animation-name: shimmer;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-@keyframes shimmer {
-  from {
-    opacity: 0;
- }
-  to {
-    opacity: 0.7;
- }
-}
-.star1 {
-  top: 40%;
-  left: 50%;
-  animation-delay: 1s;
-}
-.star2 {
-  top: 60%;
-  left: 90%;
-  animation-delay: 3s;
-}
-.star3 {
-  top: 10%;
-  left: 70%;
-  animation-delay: 2s;
-}
-.star4 {
-  top: 90%;
-  left: 40%;
-}
-.star5 {
-  top: 20%;
-  left: 30%;
-  animation-delay: 0.5s;
-}
+
 
 /*============================== CODE ==================================*/
 code {
@@ -349,7 +304,7 @@ hr {
   left: 0;
   z-index: var(--z-fixed);
   background: rgb(0,0,0);
-  background: linear-gradient(308deg, rgb(29 0 66 / 84%) 0%, rgb(48 4 90 / 79%)52%, rgb(59 0 126 / 64%) 100%);
+  background: linear-gradient(308deg, rgba(51, 0, 117, 0.84) 0%, rgba(89, 7, 166, 0.79)52%, rgba(80, 0, 172, 0.64) 100%);
   box-shadow: 0 1px 4px rgba(31, 19, 48, 0.5);
 }
 
@@ -559,7 +514,7 @@ blink .5s infinite step-end alternate;
 /*=============== FILTERS===============*/
 .filters__content {
   margin: 2rem 0 1.5rem;
-  background-color: #570dacab;
+  background-color: #48009afd;
   padding: .375rem;
   border-radius: .75rem;
   display: flex;
@@ -761,7 +716,7 @@ blink .5s infinite step-end alternate;
   margin: 1rem auto;
   border: 1px solid #ffffff48;
   background-color: #25282e;
-  background: linear-gradient(0deg, #360068 30%, #612f80 100%);
+  background: linear-gradient(0deg, #3e0077 30%, #8334b4 100%);
   border-radius: .7rem;
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
@@ -947,7 +902,7 @@ input, textarea {
   height: 60px;
   width: 60px;
   margin: 15px;
-  background: linear-gradient(308deg, rgba(32, 0, 73, 0.84) 0%, rgba(62, 6, 114, 0.79)52%, rgba(69, 0, 148, 0.64) 100%);
+  background: linear-gradient(308deg, rgba(53, 0, 123, 0.84) 0%, rgba(85, 5, 161, 0.79)52%, rgba(69, 0, 148, 0.64) 100%);
   border-radius: 50%;
   position: relative;
   z-index: 2;
