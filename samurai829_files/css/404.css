@@ -180,9 +180,16 @@ li a:hover {
     transform: translateX(-50px);
     top: 75%;
     pointer-events: none;
-    animation: rocket-movement 200s linear infinite both running;
+    animation: rocket-movement 50s linear infinite both running;
 }
-
+.object_planet{
+    z-index: 95;
+    position: absolute;
+    transform: translateX(-100px);
+    top: 45%;
+    pointer-events: none;
+    animation: rocket-movement 450s linear infinite both running;
+}
 .object_earth{
     position: absolute;
     top: 20%;

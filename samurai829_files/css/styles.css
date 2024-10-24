@@ -437,8 +437,8 @@ hr {
   display: block;
   white-space: nowrap;
   border-right: 5px solid;
-  width: 11ch;
-  animation: typing 4s steps(13),
+  width: 10ch;
+  animation: typing 4s steps(16),
 blink .5s infinite step-end alternate;
   overflow: hidden;
 }
@@ -507,6 +507,10 @@ blink .5s infinite step-end alternate;
 .certified__img {
   width: 200px;
 }
+.expirate__img {
+  width: 200px;
+  opacity: 20%;
+}
 .certified_img_shadow {
   filter: drop-shadow(15px 10px 15px #0000005e);
 }
@@ -514,7 +518,7 @@ blink .5s infinite step-end alternate;
 /*=============== FILTERS===============*/
 .filters__content {
   margin: 2rem 0 1.5rem;
-  background-color: #48009afd;
+  background-color: #9c84b8fd;
   padding: .375rem;
   border-radius: .75rem;
   display: flex;
