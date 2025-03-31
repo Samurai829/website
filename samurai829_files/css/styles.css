@@ -437,8 +437,8 @@ hr {
   display: block;
   white-space: nowrap;
   border-right: 5px solid;
-  width: 10ch;
-  animation: typing 4s steps(16),
+  width: 8.5ch;
+  animation: typing 4s steps(9),
 blink .5s infinite step-end alternate;
   overflow: hidden;
 }
