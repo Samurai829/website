@@ -8,7 +8,7 @@
   /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
   /* HSL color mode */
   --hue-color: 260;
-  --hue: 260;
+  --hue: 240;
   --sat: 90%;
   --lig: 61%;
   --first-color: hsl(var(--hue-color), 89%, 60%);
@@ -18,8 +18,8 @@
   --text-color: hsl(var(--hue), 12%, 45%);
   --text-color-light: hsl(var(--hue), 8%, 75%);
   --text-color-lighten: hsl(var(--hue), 8%, 92%);
-  --body-light: linear-gradient(320deg, #887e90 10%, #aea4ba 80%, #c6c6c6 100%);
-  --body-dark: linear-gradient(319deg, #140a19 100%,#2e2a31 23%);
+  --body-light: linear-gradient(320deg, #b0a5bb 10%, #c9c6c9 80%, #efe6f5 100%);
+  --body-dark: linear-gradient(319deg, #292829 100%,#242028 23%);
   --container-color: rgb(255, 255, 255);
 
   /*===== Fuente y tipografia =====*/
@@ -427,7 +427,12 @@ hr {
   fill: #f8f8f8;
 }
 .home__blob-img {
-  width: 490px;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 24px; /* ajusta el valor para más o menos redondeo */
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* sombra opcional */
 }
 .img_shadow {
   filter: drop-shadow(9px 10px 20px #00000086);
@@ -436,10 +441,10 @@ hr {
 .write {
   display: block;
   white-space: nowrap;
-  border-right: 5px solid;
-  width: 10ch;
-  animation: typing 4s steps(16),
-blink .5s infinite step-end alternate;
+  border-right: 8px solid;
+  width: 11.1ch;
+  animation: typing 5s steps(14),
+blink .8s infinite step-end alternate;
   overflow: hidden;
 }
 
@@ -489,7 +494,7 @@ blink .5s infinite step-end alternate;
   justify-self: center;
 }
 .about__img img {
-  width: 200px;
+  width: 100%;
   border-radius: 0.5rem;
 }
 .about_shadow {
@@ -548,6 +553,15 @@ blink .5s infinite step-end alternate;
 /* ========================= HABILIDADES ==================================*/
 .softskills__content {
   row-gap: 3.5rem;
+}
+.skillS__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  align-items: start;
+}
+.skill-block {
+  width: 100%;
 }
 .softskills__title {
   font-size: var(--h3-font-size);
@@ -640,7 +654,17 @@ blink .5s infinite step-end alternate;
   position: absolute;
   left: 0.1;
   bottom: 0;
-  background-color: #ffa600;
+  background-color: #ffc04b;
+  height: .25rem;
+  border-radius: .5rem;
+  z-index: var(--z-back);
+  box-shadow: 1px 3px 6px #17131fcc;
+}
+.skills__bar3 {
+  position: absolute;
+  left: 0.1;
+  bottom: 0;
+  background-color: #61ade7;
   height: .25rem;
   border-radius: .5rem;
   z-index: var(--z-back);
@@ -664,25 +688,55 @@ blink .5s infinite step-end alternate;
   width: 80%;
 }
 .skills__network {
-  width: 60%;
+  width: 40%;
 }
-
-/*====== DEVELOPER ======*/
 .skills__git {
+  width: 70%;
+}
+/*====== DATA ======*/
+.skills__powerbi {
   width: 70%;
 }
 .skills__python {
   width: 40%;
 }
-.skills__scripting {
+.skills__mysql {
   width: 50%;
 }
 .skills__dba {
   width: 50%;
 }
 
+/*====== TECH SKILL ======*/
+.skills__winx {
+  width: 70%;
+}
+.skills__debian {
+  width: 70%;
+}
+.skills__ubuntu {
+  width: 70%;
+}
+.skills__bash {
+  width: 70%;
+}
+.skills__shell {
+  width: 50%;
+}
 
 .skills__img {
+  justify-self: left;
+  width: 800px;
+  border-radius: .5rem;
+}
+.skills__img2 {
+  justify-self: right;
+  width: 800px;
+  border-radius: .5rem;
+}
+.skills__img3 {
+  justify-self: left;
+  width: 800px;
   border-radius: .5rem;
 }
 .skills_shadow {
