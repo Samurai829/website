@@ -82,16 +82,16 @@
                     <a href="https://gitlab.com/Samurai829" target="_blank" rel="noopener noreferrer" class="home__social-icon social_icon_shadow" aria-label="GitLab de Reymer García"><i class='bx bxl-gitlab' ></i></a>
                     <a href="mailto:reymer.garcia94@gmail.com" class="home__social-icon social_icon_shadow" aria-label="Enviar correo a Reymer García"><i class='bx bxl-google' ></i></a>
                     <a href="https://www.linkedin.com/in/reymerstevengarcia/" target="_blank" rel="noopener noreferrer" class="home__social-icon social_icon_shadow" aria-label="LinkedIn de Reymer García"><i class='bx bxl-linkedin' ></i></a>
-                    
+                                       
                     <!-- THEME BUTTON -->
-                    <button type="button" class="ri-moon-line change-theme theme-icon_shadow" id="theme-button" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="false"></button>
+                   <i class="ri-moon-line change-theme theme-icon_shadow" id="theme-button"></i>
                 
                 </div>
                 
                 <!--CURRICULUM-->
                 <div class="home__data">
                     <a href="./samurai829_files/CV/CV%20Reymer%20Garcia.pdf" target="_blank" rel="noopener noreferrer" class="button">CURRICULUM</a>
-                </div>
+                </div><br>
 
                 <!--AVATAR-->
                 <div class="home__img img_shadow">
@@ -108,7 +108,7 @@
             </section>
             
             <!--===== ABOUT =====-->
-            <section class="about section" id="about">
+           <section class="about section" id="about">
 
                 <h2 class="section_title">SOBRE MI</h2>
 
@@ -143,6 +143,7 @@
                 </div>
             </section>
 
+
                     <!--===== CERTIFICACIONES =====-->
             <section class="certified__container bd-grid" aria-label="Certificaciones profesionales">
                     <!--===== Scrum Certificate (vencida) =====-->
@@ -171,22 +172,19 @@
             <section class="filters container" id="skills">
                 <h2 class="section_title">HABILIDADES</h2>
 
-                <ul class="filters__content" role="tablist" aria-label="Categorías de habilidades interpersonales">
-                    <li role="presentation">
-                        <button class="filters__button filter-tab-active" data-target="#softskills1" role="tab" id="tab-softskills1" aria-controls="softskills1" aria-selected="true">
-                            INTERPERSONAL
-                        </button>
-                    </li>
-                    <li role="presentation">
-                        <button class="filters__button" data-target="#softskills2" role="tab" id="tab-softskills2" aria-controls="softskills2" aria-selected="false">
-                            METODICAS
-                        </button>
-                    </li>
+                <ul class="filters__content">
+                    <button class="filters__button" data-target="#softskills1">
+                        INTERPERSONAL
+                    </button>
+                    
+                    <button class="filters__button" data-target="#softskills2">
+                        METODICAS
+                    </button>
                 </ul>
 
                 <div class="filters__sections">
                     <!--=============== SOFTSKILLS ===============-->
-                    <div class="softskills__content grid filters__active" data-content id="softskills1" role="tabpanel" aria-labelledby="tab-softskills1">
+                    <div class="softskills__content grid" data-content id="softskills1">
                                             
                         <div class="softskills__area">
                             <div class="softskills__box">
@@ -195,7 +193,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Compromiso</span>
+                                            <h3 class="softskills__name">Compromiso</h3>
                                         </div>
                                     </div>
 
@@ -203,7 +201,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Responsabilidad</span>
+                                            <h3 class="softskills__name">Responsabilidad</h3>
                                         </div>
                                     </div>
 
@@ -211,7 +209,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Autorreflexión</span>
+                                            <h3 class="softskills__name">Autorreflexión</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -221,7 +219,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Disciplina</span>
+                                            <h3 class="softskills__name">Disciplina</h3>
                                         </div>
                                     </div>
 
@@ -229,7 +227,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Motivación</span>
+                                            <h3 class="softskills__name">Motivación</h3>
                                         </div>
                                     </div>
 
@@ -237,7 +235,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Curiosidad</span>
+                                            <h3 class="softskills__name">Curiosidad</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -247,7 +245,7 @@
 
 
                     <!--=============== SKILLS ===============-->
-                    <div class="softskills__content grid" data-content id="softskills2" role="tabpanel" aria-labelledby="tab-softskills2">
+                    <div class="softskills__content grid" data-content id="softskills2">
                                             
                         <div class="softskills__area">
 
@@ -257,7 +255,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Organización</span>
+                                            <h3 class="softskills__name">Organización</h3>
                                         </div>
                                     </div>
 
@@ -265,7 +263,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Estratégico</span>
+                                            <h3 class="softskills__name">Estratégico</h3>
                                         </div>
                                     </div>
 
@@ -273,7 +271,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Medios Digitales</span>
+                                            <h3 class="softskills__name">Medios Digitales</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -283,7 +281,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Proactivo</span>
+                                            <h3 class="softskills__name">Proactivo</h3>
                                         </div>
                                     </div>
 
@@ -291,7 +289,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Analíticas</span>
+                                            <h3 class="softskills__name">Analíticas</h3>
                                         </div>
                                     </div>
 
@@ -299,7 +297,7 @@
                                         <i class="ri-checkbox-circle-line"></i>
 
                                         <div>
-                                            <span class="softskills__name">Resolución</span>
+                                            <h3 class="softskills__name">Resolución</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -570,7 +568,7 @@
     
             <!--===== PROYECTOS =====-->
             <section class="projects section" id="projects">
-                <h2 class="section_title">PROYECTOS</h2>
+                <h2 class="section_title">PROYECTOS</h2><br><br>
 
                 <div class="projects__content grid filters__active" data-content>
                 
@@ -579,10 +577,10 @@
                     <article>
                         <div class="card__projects">
                             <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/aws-staticpage" target="_blank" rel="noopener noreferrer">
-                                    <img class='projects_img' src="samurai829_files/img/iac1.png" alt="Captura del proyecto AWS Static Pages" loading="lazy">
+                                <a href="https://github.com/Samurai829/aws-staticpage">
+                                    <img class='projects_img' src="samurai829_files/img/iac1.png" alt="">
                                 </a>
-                                    <h3 class='description'>AWS STATIC PAGES</h3>
+                                    <h2 class='description'>AWS STATIC PAGES</h2>
                                     <p class='description'>Proyecto de pagina estatica en AWS, este proyecto es realizado con Terraform y los servicios de AWS como EC2, VPC y ELB</p>
                                 <div class='info'>
                                     <div>
@@ -604,10 +602,10 @@
                     <article>
                         <div class="card__projects">
                             <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/webapp-project" target="_blank" rel="noopener noreferrer">
-                                    <img class='projects_img' src="samurai829_files/img/webapp.png" alt="Captura del proyecto Web App con Vagrant" loading="lazy">
+                                <a href="https://github.com/Samurai829/webapp-project">
+                                    <img class='projects_img' src="samurai829_files/img/webapp.png" alt="">
                                 </a>
-                                    <h3 class='description'>WEB APP PROJECT</h3>
+                                    <h2 class='description'>WEB APP PROJECT</h2>
                                     <p class='description'>Un proyecto realizado con VM mediante Vagrant usando los servicios Rabbitmq, Nginx, Tomcat, Maven, Memcached y MySQL.</p>
                                 <div class='info'>
                                     <div>
@@ -629,10 +627,10 @@
                     <article>
                         <div class="card__projects">
                             <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/aws-jenkinsci" target="_blank" rel="noopener noreferrer">
-                                    <img class='projects_img' src="samurai829_files/img/awsjenkinsci.png" alt="Captura del proyecto AWS Jenkins CI" loading="lazy">
+                                <a href="https://github.com/Samurai829/aws-jenkinsci">
+                                    <img class='projects_img' src="samurai829_files/img/awsjenkinsci.png" alt="">
                                 </a>
-                                    <h3 class='description'>AWS JENKINS CI</h3>
+                                    <h2 class='description'>AWS JENKINS CI</h2>
                                     <p class='description'>Proyecto AWS usando Terraform para crear Instancias EC2 con el servicio de Jenkins y Maven</p>
                                 <div class='info'>
                                     <div>
@@ -655,10 +653,10 @@
                     <article>
                         <div class="card__projects">
                             <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/website" target="_blank" rel="noopener noreferrer">
-                                    <img class='projects_img' src="samurai829_files/img/portfolio.png" alt="Captura del sitio Portfolio Web" loading="lazy">
+                                <a href="https://github.com/Samurai829/website">
+                                    <img class='projects_img' src="samurai829_files/img/portfolio.png" alt="">
                                 </a>
-                                    <h3 class='description'>PORTFOLIO WEB</h3>
+                                    <h2 class='description'>PORTFOLIO WEB</h2>
                                     <p class='description'>Aqui esta el diseño de mi Website, este contiene toda mi informacion y proyectos</p>
                                 <div class='info'>
                                     <div>
@@ -681,10 +679,10 @@
                     <article>
                         <div class="card__projects">
                             <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/docker-containers" target="_blank" rel="noopener noreferrer">
-                                    <img class='projects_img' src="samurai829_files/img/containers.png" alt="Captura del proyecto Docker Containers" loading="lazy">
+                                <a href="https://github.com/Samurai829/docker-containers">
+                                    <img class='projects_img' src="samurai829_files/img/containers.png" alt="">
                                 </a>
-                                    <h3 class='description'>DOCKER: Containers</h3>
+                                    <h2 class='description'>DOCKER: Containers</h2>
                                     <p class='description'>Proyectos con Dockefile y Contenedores</p>
                                 <div class='info'>
                                     <div>
@@ -710,7 +708,7 @@
             <!--===== CONTACT =====-->
             <section class="contacts section" id="contacts">
 
-                <h2 class="section_title">CONTACTOS</h2>
+                <h2 class="section_title">CONTACTOS</h2><br><br>
 
                 <div class="wrapper">
 
@@ -719,7 +717,7 @@
                        <div class="tooltip">
                           LinkedIn
                        </div>
-                       <a href="https://www.linkedin.com/in/reymerstevengarcia/" target="_blank" rel="noopener noreferrer" aria-label="Contactar por LinkedIn">
+                       <a href="https://www.linkedin.com/in/reymerstevengarcia/">
                             <span><i class="bx bxl-linkedin"></i></span>
                         </a>
                     </div>
@@ -729,48 +727,25 @@
                        <div class="tooltip">
                           Telegram
                        </div>
-                       <a href="https://t.me/Samurai829" target="_blank" rel="noopener noreferrer" aria-label="Contactar por Telegram">
+                       <a href="https://t.me/Samurai829">
                             <span><i class="bx bxl-telegram"></i></span>
                         </a>
                     </div>
 
                     <!--===== DISCORD =====-->
-                    <!-- NOTA: el enlace discord.com/channels/@me/ID solo abre un DM cuando el
-                         visitante ya tiene sesión iniciada como TU cuenta; para visitantes no
-                         funciona. Sustituye por una invitación pública (discord.gg/xxxx) o por
-                         tu usuario (ej. samurai829) si quieres que cualquiera pueda contactarte. -->
                     <div class="icon discord">
                         <div class="tooltip">
                            Discord
                         </div>
-                        <a href="https://discord.com/channels/@me/563505268898660362" target="_blank" rel="noopener noreferrer" aria-label="Contactar por Discord">
+                        <a href="https://discord.com/channels/@me/563505268898660362">
                             <span><i class="bx bxl-discord"></i></span>
                         </a>
                     </div>  
 
                 </div>
-            <!---
-                <div class="form__content bd-grid">
-                    <form action="https://formsubmit.co/d83386187be36e02f119c76df2e31811" method="POST" class="contact__form">
-                        <label for="name">NOMBRE</label>
-                        <input type="text" name="name" placeholder="Nombre" class="contact__input" id="name">
+            </div>        
 
-                        <label for="mail">CORREO</label>
-                        <input type="mail" name="email" placeholder="Correo" class="contact__input" id="mail">
-                        
-                        <label for="subject">ASUNTO</label>
-                        <input type="text" name="subject" placeholder="Asunto" class="contact__input" id="subject">
-                        
-                        <label for="comments">MENSAJE</label>
-                        <textarea name="comments" cols="30" rows="10" class="contact__input" id="comments"></textarea>
-                        <input type="submit" value="ENVIAR" class="contact__button button">
-
-                        <input type="hidden" name="_next" value="https://samurai829.github.io/website/">
-                        <input type="hidden" name="_captcha" value="false">
-                    </form>
-                </div>     --->             
-
-            </section>
+            </section><br><br><br>
 
 
         </main>
@@ -779,12 +754,12 @@
         <footer class="footer">
             <p class="footer__title">Reymer García Acevedo</p>
             <div class="footer__social">
-                <a href="https://github.com/Samurai829" target="_blank" rel="noopener noreferrer" class="footer__icon" aria-label="GitHub"><i class='bx bxl-github' ></i></a>
-                <a href="https://gitlab.com/Samurai829" target="_blank" rel="noopener noreferrer" class="footer__icon" aria-label="GitLab"><i class='bx bxl-gitlab' ></i></a>
-                <a href="mailto:reymer.garcia94@gmail.com" class="footer__icon" aria-label="Correo electrónico"><i class='bx bxl-google' ></i></a>
-                <a href="https://www.linkedin.com/in/reymerstevengarcia/" target="_blank" rel="noopener noreferrer" class="footer__icon" aria-label="LinkedIn"><i class='bx bxl-linkedin' ></i></a>
+                <a href="https://github.com/Samurai829" class="footer__icon"><i class='bx bxl-github' ></i></a>
+                <a href="https://gitlab.com/Samurai829" class="footer__icon"><i class='bx bxl-gitlab' ></i></a>
+                <a href="mailto:reymer.garcia94@gmail.com" class="footer__icon"><i class='bx bxl-google' ></i></a>
+                <a href="https://www.linkedin.com/in/reymerstevengarcia/" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
             </div>
-            <p class="footer__copy">&#169; <span id="footer-year">2026</span> Samurai829. All rights reserved</p>
+            <p class="footer__copy">&#169; Samurai829. All rigths reserved</p>
             <p class="footer__copy">Developer by Reymer Steven Garcia Acevedo</p>
         </footer>
 

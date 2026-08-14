@@ -24,9 +24,9 @@
 
   /*===== Fuente y tipografia =====*/
   --body-font: 'Poppins', sans-serif;
-  --big-font-size: 2rem;
-  --h2-font-size: 1.25rem;
-  --h3-font-size: 1rem;
+  --big-font-size: 3rem;
+  --h2-font-size: 2.5rem;
+  --h3-font-size: 1.5rem;
   --normal-font-size: .938rem;
   --smaller-font-size: .75rem;
   /*===== Margenes =====*/
@@ -44,8 +44,8 @@
 @media screen and (min-width: 968px) {
   :root {
     --big-font-size: 3.5rem;
-    --h2-font-size: 2rem;
-    --h3-font-size: 1rem;
+    --h2-font-size: 2.25rem;
+    --h3-font-size: 1.5rem;
     --normal-font-size: 1rem;
     --small-font-size: .813rem;
     --smaller-font-size: .875rem;
@@ -557,10 +557,11 @@ blink .8s infinite step-end alternate;
 .skillS__container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
+  gap: 15px;
   align-items: start;
 }
 .skill-block {
+  padding-top: 20px;
   width: 100%;
 }
 .softskills__title {
