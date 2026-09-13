@@ -1,775 +1,531 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Portafolio de Reymer García: Data Analyst y especialista en DevOps, cloud, automatización y soporte IT.">
+  <meta name="author" content="Reymer García Acevedo">
+  <link rel="canonical" href="https://samurai829.github.io/website/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Reymer García | Data & Cloud Operations">
+  <meta property="og:description" content="Convierto datos y operaciones tecnológicas en sistemas más claros, automatizados y confiables.">
+  <meta property="og:image" content="https://samurai829.github.io/website/assets/perfil/perfil.jpg">
+  <meta property="og:url" content="https://samurai829.github.io/website/">
+  <link rel="icon" type="image/png" href="./assets/perfil/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./js/i18n.css">
+  <title>Reymer García | Data & Cloud Operations</title>
+  <style>
+    /* ── Transición de carga (solo ornamental, no toca styles.css) ── */
+    html { opacity: 0; transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
+    html.loaded { opacity: 1; }
+    .page-mask {
+      position: fixed; inset: 0; z-index: 9998;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+      pointer-events: none;
+    }
+    .page-mask.fade-out { opacity: 0; }
+    .page-mask .spinner {
+      width: 40px; height: 40px;
+      border: 2px solid var(--line);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-        <!-- ===============SEO================= -->
-        <meta name="description" content="Portfolio de Reymer García: Data Analyst y Administrador de Sistemas especializado en DevOps, Cloud (AWS), automatización y análisis de datos.">
-        <meta name="author" content="Reymer García Acevedo">
-        <link rel="canonical" href="https://samurai829.github.io/website/">
+    /* ── Botón de tema — posición fija en el header (visible siempre) ── */
+    .theme-switch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.22s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+      font-size: 15px;
+    }
 
-        <!-- ===============OPEN GRAPH================= -->
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Reymer García | Data Analyst & DevOps · Portfolio">
-        <meta property="og:description" content="Portfolio de Reymer García: Data Analyst y Administrador de Sistemas especializado en DevOps, Cloud (AWS), automatización y análisis de datos.">
-        <meta property="og:image" content="https://samurai829.github.io/website/samurai829_files/img/perfil.jpg">
-        <meta property="og:url" content="https://samurai829.github.io/website/">
+    .theme-switch::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(168, 241, 90, 0.06) 0%, transparent 60%);
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
 
-        <link rel="stylesheet" href="./samurai829_files/css/styles.css">
-        <link rel="icon" type="image/png" href="./samurai829_files/img/icon.png">
-        <!-- ===============BOX ICONS================= -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-        <!--=============== REMIX ICONS ===============-->
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    .theme-switch:hover {
+      background: var(--surface-2);
+      color: var(--accent);
+      border-color: rgba(168, 241, 90, 0.3);
+      transform: translateY(-1px);
+    }
 
-        <title>Reymer García | Data Analyst & DevOps · Portfolio</title>
-    </head>
-    <body>
+    .theme-switch:hover::before { opacity: 1; }
+    .theme-switch:active { transform: translateY(0); }
 
-        <!--===== LOADER =====-->
-        <div class="loader_container">
-            <div class="loader"></div>
-            <div class="loader2"></div>
+    @media (max-width: 760px) {
+      .theme-switch { width: 32px; height: 32px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="light-bg-1" aria-hidden="true"></div>
+  <div class="light-bg-2" aria-hidden="true"></div>
+  <div class="light-bg-3" aria-hidden="true"></div>
+  <div class="progress-line" id="progress-line"></div>
+
+  <!-- Header con botón de tema alineado a la izquierda, fuera del nav -->
+  <header class="site-header">
+    <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+      <i class="bx bx-moon"></i>
+    </button>
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="#home" aria-label="Reymer García, inicio"><span class="brand-mark">RG</span><span>Reymer Garcia A<span class="accent">.</span></span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu"><i class="bx bx-menu"></i></button>
+      <div class="nav-menu" id="nav-menu">
+        <a class="nav-link active" href="#home" data-i18n="nav.home">Inicio</a>
+        <a class="nav-link" href="#about" data-i18n="nav.profile">Perfil</a>
+        <a class="nav-link" href="#services" data-i18n="nav.services">Servicios</a>
+        <a class="nav-link" href="#projects" data-i18n="nav.projects">Proyectos</a>
+        <a class="nav-link" href="#contact" data-i18n="nav.contact">Contacto</a>
+        <a class="nav-cv" href="./assets/CV/CV%20Reymer%20Garcia.pdf" target="_blank" rel="noopener" data-i18n="nav.cv">Ver CV <i class="bx bx-arrow-up-right"></i></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div class="hero-copy reveal container">
+        <p class="eyebrow"><span class="status-dot"></span> <span data-i18n="hero.available">Disponible para nuevas oportunidades</span></p>
+        <h1><span data-i18n="hero.title">Datos, Cloud y Operaciones <span class="gradient-text">que</span> impulsan.</span></h1>
+        <p class="hero-lead" data-i18n="hero.lead">Soy <strong>Reymer García</strong>, Data Analyst y profesional de infraestructura IT. Diseño soluciones automatizadas, convierto información en decisiones y mantengo operaciones tecnológicas confiables.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects" data-i18n="hero.explore">Explorar proyectos <i class="bx bx-right-arrow-alt"></i></a>
+          <a class="button button-ghost" href="mailto:reymer.garcia94@gmail.com" data-i18n="hero.letsTalk">Hablemos <i class="bx bx-envelope"></i></a>
         </div>
-
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-
-                <div>
-                    <a title="Samurai829 - Inicio" href="https://samurai829.github.io/website/">
-                        <img class="nav__img" src="samurai829_files/img/icon.png" alt="Logo Samurai829" width="150" height="150">
-                    </a>
-                </div>
-                <div>
-                    <a href="https://samurai829.github.io/website/" class="nav__logo">Portfolio<span class="text__color">.</span></a>
-                </div>
-
-                <!--===== MENU =====-->
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-        
-                        <li class="nav__item"><a href="#home" class="nav__link">INICIO</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">SOBRE</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">HABILIDADES</a></li>
-                        <li class="nav__item"><a href="#projects" class="nav__link">PROYECTOS</a></li>
-                        <li class="nav__item"><a href="#contacts" class="nav__link">CONTACTO</a></li>
-
-                    </ul>
-                </div>
-
-                <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-menu">
-                    <i class='bx bx-menu'></i>
-                </button>
-
-            </nav>
-        </header>
-
-        <main class="l-main">
-            <!--===== INICIO =====-->
-            <section class="home bd-grid" id="home">
-
-                <div class="home__data">
-
-                    <!--SALUDO-->
-                    <h1 class="home__title">Hola✌️<br>Soy <span class="text__color home_title_shadow">Reymer García</span><br>
-                    <span class="text__color home__title write home_title_shadow">Data Analyst.</span></h1>
-                
-
-                    <!--LINKS-->
-                    <a href="https://github.com/Samurai829" target="_blank" rel="noopener noreferrer" class="home__social-icon social_icon_shadow" aria-label="GitHub de Reymer García"><i class='bx bxl-github' ></i></a>
-                    <a href="https://gitlab.com/Samurai829" target="_blank" rel="noopener noreferrer" class="home__social-icon social_icon_shadow" aria-label="GitLab de Reymer García"><i class='bx bxl-gitlab' ></i></a>
-                    <a href="mailto:reymer.garcia94@gmail.com" class="home__social-icon social_icon_shadow" aria-label="Enviar correo a Reymer García"><i class='bx bxl-google' ></i></a>
-                    <a href="https://www.linkedin.com/in/reymerstevengarcia/" target="_blank" rel="noopener noreferrer" class="home__social-icon social_icon_shadow" aria-label="LinkedIn de Reymer García"><i class='bx bxl-linkedin' ></i></a>
-                                       
-                    <!-- THEME BUTTON -->
-                   <i class="ri-moon-line change-theme theme-icon_shadow" id="theme-button"></i>
-                
-                </div>
-                
-                <!--CURRICULUM-->
-                <div class="home__data">
-                    <a href="./samurai829_files/CV/CV%20Reymer%20Garcia.pdf" target="_blank" rel="noopener noreferrer" class="button">CURRICULUM</a>
-                </div><br>
-
-                <!--AVATAR-->
-                <div class="home__img img_shadow">
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Foto de perfil de Reymer García">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        </mask>
-                        <g mask="url(#mask0)">
-                        <image class="home__blob-img" x="0" y="0" href="./samurai829_files/img/perfil.jpg"/>
-                        </g>
-                    </svg>
-                </div>
-
-            </section>
-            
-            <!--===== ABOUT =====-->
-           <section class="about section" id="about">
-
-                <h2 class="section_title">SOBRE MI</h2>
-
-                <div class="about__container bd-grid">
-                    
-                    <div>
-                        <p class="about__text about__lead about_shadow">Soy <span class="text__color">Reymer Garcia</span>,</p>
-                        <p class="about__text">
-                        Soy Dominicano, apasionado de la tecnología y entusiasta de los videojuegos. 🎮
-                        </p>
-                        <p class="about__text">     
-                        Como Analista de Datos y Administrador de Sistemas con más de 5 años de experiencia en 
-                        soporte técnico IT (Hardware, Software, Redes, Linux y Windows), me he especializado en 
-                        transformar entornos tradicionales en infraestructuras modernas, estables y eficientes.                             
-                        </p>
-                        <p class="about__text">
-                        Actualmente llevo más de 2 años implementando activamente la cultura DevOps en diversos 
-                        entornos, desarrollando proyectos prácticos y sumando certificaciones para seguir elevando 
-                        el nivel de mis habilidades. Mi enfoque integra la automatización, el análisis de métricas 
-                        de servicio y la gestión operativa impulsada por datos.
-                        </p>      
-                        <p class="about__text">
-                        He logrado metas personales como profesionales de las cuales estoy muy orgulloso, he obtenido certificaciones como AWS Certified 
-                        Cloud Practitioner y Scrum Foundation Professional Certificate.
-                        </p>                          
-                    </div>
-
-                    <div class="about__img about_img_shadow">
-                        <img src="samurai829_files/img/about.jpg" alt="Reymer García trabajando en tecnología" loading="lazy">
-                    </div>
-                        
-                </div>
-            </section>
-
-
-                    <!--===== CERTIFICACIONES =====-->
-            <section class="certified__container bd-grid" aria-label="Certificaciones profesionales">
-                    <!--===== Scrum Certificate (vencida) =====-->
-                    <a title="Scrum Foundation Professional Certificate (vencida)" href="https://www.credly.com/badges/1acde978-6855-457e-bb7c-44291729508f" target="_blank" rel="noopener noreferrer">
-                        <img src="./samurai829_files/img/Scrum-certified.png" alt="Certificado Scrum Foundation Professional (vencido)" class="certified_img_shadow certified__img expirate__img" loading="lazy">
-                    </a>
-                    <!--===== Scrum Certificate v2 =====-->
-                    <a title="Scrum Foundation Professional Certificate" href="https://www.credly.com/badges/21069eb1-ee61-47fd-a613-9f4dc10fdf7a" target="_blank" rel="noopener noreferrer">
-                        <img src="./samurai829_files/img/Scrum-certifiedv2.png" alt="Certificado Scrum Foundation Professional" class="certified_img_shadow certified__img" loading="lazy">
-                    </a>
-                    <!--===== AWS Certificate =====-->
-                    <a title="AWS Certified Cloud Practitioner" href="https://www.credly.com/badges/3df72324-3695-4ec9-a49b-77e5d9a71826" target="_blank" rel="noopener noreferrer">
-                        <img src="./samurai829_files/img/AWS-certified1.png" alt="Certificado AWS Certified Cloud Practitioner" class="certified_img_shadow certified__img" loading="lazy">
-                    </a>
-                    <!--===== CertiProf Certificate =====-->
-                    <a title="CertiProf Lifelong Learning" href="https://www.credly.com/badges/b0b9404e-f36e-40da-8da2-66a25c20d73d" target="_blank" rel="noopener noreferrer">
-                        <img src="./samurai829_files/img/CertiProf.png" alt="Certificado CertiProf Lifelong Learning" class="certified_img_shadow certified__img" loading="lazy">
-                    </a>
-                    <!--===== CertiProf Certificate =====-->
-                    <a title="CertiProf Cybersecurity Awareness" href="https://www.credly.com/badges/d66a758e-33a6-4e48-b9a6-00ff9005f2dc" target="_blank" rel="noopener noreferrer">
-                        <img src="./samurai829_files/img/cybersecurity.png" alt="Certificado CertiProf Cybersecurity Awareness" class="certified_img_shadow certified__img" loading="lazy">
-                    </a>
-            </section>
-
-            <!--===== HABILIDADES =====-->
-            <section class="filters container" id="skills">
-                <h2 class="section_title">HABILIDADES</h2>
-
-                <ul class="filters__content">
-                    <button class="filters__button" data-target="#softskills1">
-                        INTERPERSONAL
-                    </button>
-                    
-                    <button class="filters__button" data-target="#softskills2">
-                        METODICAS
-                    </button>
-                </ul>
-
-                <div class="filters__sections">
-                    <!--=============== SOFTSKILLS ===============-->
-                    <div class="softskills__content grid" data-content id="softskills1">
-                                            
-                        <div class="softskills__area">
-                            <div class="softskills__box">
-                                <div class="softskills__group">
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Compromiso</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Responsabilidad</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Autorreflexión</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="softskills__group">
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Disciplina</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Motivación</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Curiosidad</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-
-
-                    <!--=============== SKILLS ===============-->
-                    <div class="softskills__content grid" data-content id="softskills2">
-                                            
-                        <div class="softskills__area">
-
-                            <div class="softskills__box">
-                                <div class="softskills__group">
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Organización</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Estratégico</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Medios Digitales</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="softskills__group">
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Proactivo</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Analíticas</h3>
-                                        </div>
-                                    </div>
-
-                                    <div class="softskills__data">
-                                        <i class="ri-checkbox-circle-line"></i>
-
-                                        <div>
-                                            <h3 class="softskills__name">Resolución</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-
-
-                <!--===== PROFESIONAL SKILLS =====-->                
-                <div class="skills__container"> 
-                    <h3 class="skills__title skills_shadow">PROFESIONALES</h3>
-                </div>
-                <div class="skills__container bd-grid"> 
-                     
-                    <div class="skills__container">
-
-                        <!--===== DEVOPS SKILLS =====-->
-                        <div class="skill-block">
-                            <h3 class="skills__subtitle">DEVOPS</h3>
-                        
-                            <!--===== DOCKER =====-->
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <!--===== DOCKER =====-->
-                                    <img class="icon__skills" src="./samurai829_files/img/docker.svg" alt="">
-                                    <span class="skills__name">Docker</span>
-                                </div>
-                                <div class="skills__bar skills__docker">
-
-                                </div>
-                                <div>
-                                    <span class="skills__percentage">80%</span>
-                                </div>
-                            </div>
-
-                            <!--===== KUBERNETES =====-->
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <!--===== K8S =====-->
-                                    <img class="icon__skills" src="./samurai829_files/img/kubernetes.svg" alt="">
-                                    <span class="skills__name">Kubernetes</span>
-                                </div>
-                                <div class="skills__bar skills__kubernetes">
-                                </div>
-                                <div>
-                                    <span class="skills__percentage">70%</span>
-                                </div>
-                            </div>                                                       
-
-                            <!--===== TERRAFORM =====-->
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <!--===== TERRAFORM =====-->
-                                    <img class="icon__skills" src="./samurai829_files/img/terraform.svg" alt="">
-                                    <span class="skills__name">Terraform</span>
-                                </div>
-                                <div class="skills__bar skills__terraform">
-                                </div>
-                                <div>
-                                    <span class="skills__percentage">90%</span>
-                                </div>
-                            </div>
-
-                            <!--===== AWS =====-->
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <!--===== AWS =====-->
-                                    <img class="icon__skills" src="./samurai829_files/img/aws.svg" alt="">
-                                    <span class="skills__name">AWS</span>
-                                </div>
-                                <div class="skills__bar skills__aws">
-                                    
-                                </div>
-                            
-                                <div>
-                                    <span class="skills__percentage">80%</span>
-                                </div>
-                            </div>                          
-
-
-                            <!--===== GIT =====-->
-                            <div class="skills__data">
-                                <div class="skills__names">
-                                    <!--===== GIT =====-->
-                                    <img class="icon__skills" src="./samurai829_files/img/git.svg" alt="">
-                                    <span class="skills__name">GIT</span>
-                                </div>
-                                <div class="skills__bar skills__git">   
-                                </div>
-                                <div>
-                                    <span class="skills__percentage">70%</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="img_shadow skills_img_shadow skill-block">              
-                        <img src="./samurai829_files/img/skills.gif" alt="Demostración de código y automatización DevOps" class="skills__img" loading="lazy">
-                    </div>
-
-                    
-
-                    <div class="img_shadow skills_img_shadow skill-block">              
-                        <img src="./samurai829_files/img/data.gif" alt="Panel de análisis de datos" class="skills__img" loading="lazy">
-                    </div>
-                    <div class="skill-block">
-                        <!--===== ANALYST SKILLS =====-->
-                        <h3 class="skills__subtitle">DATA ANALYST</h3>
-                        <!--===== POWER BI =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== POWER BI =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/power-bi.svg" alt="">
-                                <span class="skills__name">Power BI</span>
-                            </div>
-                            <div class="skills__bar2 skills__powerbi">   
-                            </div>
-                            <div>
-                                <span class="skills__percentage">70%</span>
-                            </div>
-                        </div>
-                        <!--===== PYTHON =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== PYTHON =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/python.svg" alt="">
-                                <span class="skills__name">Python</span>
-                            </div>
-                            <div class="skills__bar2 skills__python">
-                            </div>
-
-                            <div>
-                                <span class="skills__percentage">40%</span>
-                            </div>
-                        </div>
-                        <!--===== MYSQL =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== MYSQL =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/mysql.svg" alt="">
-                                <span class="skills__name">MySQL</span>
-                            </div>
-                            <div class="skills__bar2 skills__mysql">    
-                            </div>
-
-                            <div>
-                                <span class="skills__percentage">50%</span>
-                            </div>
-                        </div>
-                        <!--===== DBA =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== POSTGRESQL =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/postgresql.svg" alt="">
-                                <span class="skills__name">PostgreSQL</span>
-                            </div>
-                            <div class="skills__bar2 skills__dba">    
-                            </div>
-
-                            <div>
-                                <span class="skills__percentage">50%</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="skill-block">
-                        <!--===== SUPPORT TI SKILLS =====-->
-                        <h3 class="skills__subtitle">IT SUPPORT</h3>
-                        <!--===== WINDOWS =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== DEBIAN =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/windows.svg" alt="">
-                                <span class="skills__name">Windows Server</span>
-                            </div>
-                            <div class="skills__bar3 skills__winx">   
-                            </div>
-                            <div>
-                                <span class="skills__percentage">70%</span>
-                            </div>
-                        </div>                        
-
-                        <!--===== DEBIAN =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== DEBIAN =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/debian.svg" alt="">
-                                <span class="skills__name">Debian</span>
-                            </div>
-                            <div class="skills__bar3 skills__debian">   
-                            </div>
-                            <div>
-                                <span class="skills__percentage">70%</span>
-                            </div>
-                        </div>
-
-                        <!--===== UBUNTU =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== UBUNTU =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/ubuntu.svg" alt="">
-                                <span class="skills__name">Ubuntu</span>
-                            </div>
-                            <div class="skills__bar3 skills__ubuntu">   
-                            </div>
-                            <div>
-                                <span class="skills__percentage">70%</span>
-                            </div>
-                        </div>
-
-                        <!--===== POWER SHELL =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== POWER SHELL =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/powershell.svg" alt="">
-                                <span class="skills__name">Power Shell</span>
-                            </div>
-                            <div class="skills__bar3 skills__shell">
-                            </div>
-
-                            <div>
-                                <span class="skills__percentage">40%</span>
-                            </div>
-                        </div>
-                            
-                        <!--===== SCRIPTING =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== SCRIPT =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/bash.svg" alt="">
-                                <span class="skills__name">Bash</span>
-                            </div>
-                            <div class="skills__bar3 skills__bash">
-                            </div>
-                            <div>
-                                <span class="skills__percentage">70%</span>
-                            </div>
-                        </div>
-                        <!--===== NETWORK =====-->
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <!--===== CONFIG =====-->
-                                <img class="icon__skills" src="./samurai829_files/img/network.svg" alt="">
-                                <span class="skills__name">NETWORK</span>
-                            </div>
-                            <div class="skills__bar3 skills__network">
-                            </div>
-                            <div>
-                                <span class="skills__percentage">40%</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="img_shadow skills_img_shadow skill-block">              
-                        <img src="./samurai829_files/img/techskills.gif" alt="Configuración de hardware y equipo de soporte técnico" class="skills__img" loading="lazy">
-                    </div>
-
-
-
-
-
-
-
-
-                </div>  
-            </section>
-    
-            <!--===== PROYECTOS =====-->
-            <section class="projects section" id="projects">
-                <h2 class="section_title">PROYECTOS</h2><br><br>
-
-                <div class="projects__content grid filters__active" data-content>
-                
-
-                    <!--===== PAGINA ESTATICA v1=====-->
-                    <article>
-                        <div class="card__projects">
-                            <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/aws-staticpage">
-                                    <img class='projects_img' src="samurai829_files/img/iac1.png" alt="">
-                                </a>
-                                    <h2 class='description'>AWS STATIC PAGES</h2>
-                                    <p class='description'>Proyecto de pagina estatica en AWS, este proyecto es realizado con Terraform y los servicios de AWS como EC2, VPC y ELB</p>
-                                <div class='info'>
-                                    <div>
-                                        <p class="difficulty"><ins>⭐⭐</ins>MEDIO</p>
-                                    </div>
-                                    <div>
-                                        <p class="duration"><ins>⌛</ins>1 MES</p>
-                                    </div>
-                                </div>
-                            <hr/>
-                                <div>
-                                    <p class="created__by">Github<span class="text__color">/Samurai829</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!--===== PAGINA ESTATICA v2=====-->
-                    <article>
-                        <div class="card__projects">
-                            <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/webapp-project">
-                                    <img class='projects_img' src="samurai829_files/img/webapp.png" alt="">
-                                </a>
-                                    <h2 class='description'>WEB APP PROJECT</h2>
-                                    <p class='description'>Un proyecto realizado con VM mediante Vagrant usando los servicios Rabbitmq, Nginx, Tomcat, Maven, Memcached y MySQL.</p>
-                                <div class='info'>
-                                    <div>
-                                        <p class="difficulty"><ins>⭐⭐⭐</ins>DIFICIL</p>
-                                    </div>
-                                    <div>
-                                        <p class="duration"><ins>⌛</ins>2 MES</p>
-                                    </div>
-                                </div>
-                            <hr/>
-                                <div>
-                                    <p class="created__by">Github<span class="text__color">/Samurai829</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!--===== PAGINA CI/CD v2=====-->
-                    <article>
-                        <div class="card__projects">
-                            <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/aws-jenkinsci">
-                                    <img class='projects_img' src="samurai829_files/img/awsjenkinsci.png" alt="">
-                                </a>
-                                    <h2 class='description'>AWS JENKINS CI</h2>
-                                    <p class='description'>Proyecto AWS usando Terraform para crear Instancias EC2 con el servicio de Jenkins y Maven</p>
-                                <div class='info'>
-                                    <div>
-                                        <p class="difficulty"><ins>⭐⭐⭐</ins>MEDIO</p>
-                                    </div>
-                                    <div>
-                                        <p class="duration"><ins>⌛</ins>1 MES</p>
-                                    </div>
-                                </div>
-                            <hr/>
-                                <div>
-                                    <p class="created__by">Github<span class="text__color">/Samurai829</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-
-                    <!--===== PAGINA PORTFOLIO=====-->
-                    <article>
-                        <div class="card__projects">
-                            <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/website">
-                                    <img class='projects_img' src="samurai829_files/img/portfolio.png" alt="">
-                                </a>
-                                    <h2 class='description'>PORTFOLIO WEB</h2>
-                                    <p class='description'>Aqui esta el diseño de mi Website, este contiene toda mi informacion y proyectos</p>
-                                <div class='info'>
-                                    <div>
-                                        <p class="difficulty"><ins>⭐⭐⭐</ins>DIFICIL</p>
-                                    </div>
-                                    <div>
-                                    <p class="duration"><ins>⌛</ins>3 MES / ACTUALIDAD</p>
-                                    </div>
-                                </div>
-                            <hr/>
-                                <div>
-                                    <p class="created__by">Github<span class="text__color">/Samurai829</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-
-                    <!--===== CONTAINERS=====-->
-                    <article>
-                        <div class="card__projects">
-                            <div class='projects__main'>
-                                <a href="https://github.com/Samurai829/docker-containers">
-                                    <img class='projects_img' src="samurai829_files/img/containers.png" alt="">
-                                </a>
-                                    <h2 class='description'>DOCKER: Containers</h2>
-                                    <p class='description'>Proyectos con Dockefile y Contenedores</p>
-                                <div class='info'>
-                                    <div>
-                                        <p class="difficulty"><ins>⭐⭐</ins>MEDIO</p>
-                                    </div>
-                                    <div>
-                                        <p class="duration"><ins>⌛</ins>2 MES</p>
-                                    </div>
-                                </div>
-                            <hr/>
-                                <div>
-                                    <p class="created__by">Github<span class="text__color">/Samurai829</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-
-                </div>
-            </section>
-
-            
-            <!--===== CONTACT =====-->
-            <section class="contacts section" id="contacts">
-
-                <h2 class="section_title">CONTACTOS</h2><br><br>
-
-                <div class="wrapper">
-
-                    <!--===== LINKEDIN =====-->
-                    <div class="icon linkedin">
-                       <div class="tooltip">
-                          LinkedIn
-                       </div>
-                       <a href="https://www.linkedin.com/in/reymerstevengarcia/">
-                            <span><i class="bx bxl-linkedin"></i></span>
-                        </a>
-                    </div>
-
-                    <!--===== TELEGRAM =====-->
-                    <div class="icon telegram">
-                       <div class="tooltip">
-                          Telegram
-                       </div>
-                       <a href="https://t.me/Samurai829">
-                            <span><i class="bx bxl-telegram"></i></span>
-                        </a>
-                    </div>
-
-                    <!--===== DISCORD =====-->
-                    <div class="icon discord">
-                        <div class="tooltip">
-                           Discord
-                        </div>
-                        <a href="https://discord.com/channels/@me/563505268898660362">
-                            <span><i class="bx bxl-discord"></i></span>
-                        </a>
-                    </div>  
-
-                </div>
-            </div>        
-
-            </section><br><br><br>
-
-
-        </main>
-
-        <!--PIE DE PAGINA-->
-        <footer class="footer">
-            <p class="footer__title">Reymer García Acevedo</p>
-            <div class="footer__social">
-                <a href="https://github.com/Samurai829" class="footer__icon"><i class='bx bxl-github' ></i></a>
-                <a href="https://gitlab.com/Samurai829" class="footer__icon"><i class='bx bxl-gitlab' ></i></a>
-                <a href="mailto:reymer.garcia94@gmail.com" class="footer__icon"><i class='bx bxl-google' ></i></a>
-                <a href="https://www.linkedin.com/in/reymerstevengarcia/" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
+        <div class="social-row" aria-label="Perfiles profesionales">
+          <a href="https://www.linkedin.com/in/reymerstevengarcia/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://github.com/Samurai829" target="_blank" rel="noopener" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+          <a href="https://gitlab.com/Samurai829" target="_blank" rel="noopener" aria-label="GitLab"><i class="bx bxl-gitlab"></i></a>
+          <span class="social-caption" data-i18n="hero.connect">Conecta conmigo</span>
+        </div>
+      </div>
+      <div class="hero-visual reveal reveal-delay">
+        <div class="light-streak a" aria-hidden="true"></div>
+        <div class="light-streak b" aria-hidden="true"></div>
+        <div class="light-streak c" aria-hidden="true"></div>
+        <div class="visual-glow"></div>
+        <div class="hero-ring" aria-hidden="true"></div>
+        <div class="profile-frame">
+          <div class="frame-glow"></div>
+          <div class="img-glow"></div>
+          <div class="img-shade"></div>
+          <span class="frame-label">Reymer García Acevedo</span>
+          <img src="./assets/perfil/perfil.jpg" alt="Reymer García Acevedo" width="610" height="447">
+        </div>
+        <div class="floating-card floating-card-top">
+          <i class="bx bx-cloud" aria-hidden="true"></i><i class="bx bx-server" aria-hidden="true"></i>
+          <span data-i18n="hero.cloudLabel"><b>Cloud & DevOps</b><small>Automatización + Escala</small></span>
+        </div>
+        <div class="floating-card floating-card-bottom">
+          <span class="years-num">5+</span><span class="years-text" data-i18n="hero.yearsText">Años en soporte IT</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar"><div class="container trust-inner">
+      <span data-i18n="trust.title">Áreas de especialización</span>
+      <div><b>DEVOPS</b><b>DATA ANALYTICS</b><b>IT OPERATIONS</b></div>
+    </div></section>
+
+    <!-- ABOUT -->
+    <section class="section container" id="about">
+      <div class="section-heading"><p class="eyebrow" data-i18n="about.eyebrow">01 — Perfil profesional</p>
+        <h2><span data-i18n="about.title">Una mirada técnica <br><span class="muted-text">con visión de negocio.</span></span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="lead-text" data-i18n="about.lead">La tecnología funciona mejor cuando es entendible, medible y sostenible.</p>
+          <p data-i18n="about.bio">Soy dominicano, apasionado por la tecnología y los videojuegos. Durante más de 5 años he trabajado en Soporte Técnico IT, hardware, software, redes y entornos Linux/Windows. En los últimos 2 años he enfocado mi crecimiento en DevOps, tecnologias Cloud y análisis de datos.</p>
+          <p data-i18n="about.approach">Mi enfoque combina resolución de problemas, automatización y métricas operativas para ayudar a los equipos a trabajar con más eficiencia y confianza.</p>
+          <div class="stats">
+            <div><strong>5+</strong><span data-i18n="about.stats.it">Años en IT</span></div>
+            <div><strong>2+</strong><span data-i18n="about.stats.devops">Años con DevOps</span></div>
+            <div><strong>10+</strong><span data-i18n="about.stats.projects">Proyectos técnicos</span></div>
+          </div>
+        </div>
+        <div class="about-note">
+          <i class="bx bx-bulb"></i>
+          <h3 data-i18n="about.bring">Lo que aporto</h3>
+          <p data-i18n="about.bringText">Curiosidad técnica, pensamiento analítico y una mentalidad de mejora continua para convertir retos operativos en resultados concretos.</p>
+          <div class="pill-list">
+            <span data-i18n="pill.commitment">Compromiso</span>
+            <span data-i18n="pill.proactivity">Proactividad</span>
+            <span data-i18n="pill.organization">Organización</span>
+            <span data-i18n="pill.resolution">Resolución</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section-tint" id="services">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow" data-i18n="services.eyebrow">02 — Cómo puedo ayudarte</p>
+          <h2><span data-i18n="services.title">Servicios <br><span class="muted-text">pensados para escalar.</span></span></h2>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal" data-index="0">
+            <span class="service-number">01</span>
+            <i class="bx bx-git-branch"></i>
+            <h3 data-i18n="service.devops">DevOps & Automatización</h3>
+            <p data-i18n="service.devopsDesc">Infraestructura como código, contenedores y pipelines para desplegar de forma repetible y segura.</p>
+            <a href="#projects" data-i18n="service.viewExp">Ver experiencia <i class="bx bx-right-arrow-alt"></i></a>
+          </article>
+          <article class="service-card featured reveal" data-index="1">
+            <span class="service-number">02</span>
+            <i class="bx bx-bar-chart-alt-2"></i>
+            <h3 data-i18n="service.data">Data Analytics</h3>
+            <p data-i18n="service.dataDesc">Organizo datos y métricas en información útil para detectar oportunidades y tomar mejores decisiones.</p>
+            <a href="#projects" data-i18n="service.viewExp">Ver experiencia <i class="bx bx-right-arrow-alt"></i></a>
+          </article>
+          <article class="service-card reveal" data-index="2">
+            <span class="service-number">03</span>
+            <i class="bx bx-desktop"></i>
+            <h3 data-i18n="service.itOps">IT Operations</h3>
+            <p data-i18n="service.itOpsDesc">Soporte técnico, sistemas y redes con foco en estabilidad, documentación y una buena experiencia de usuario.</p>
+            <a href="mailto:reymer.garcia94@gmail.com" data-i18n="service.consult">Consultar disponibilidad <i class="bx bx-right-arrow-alt"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section container" id="skills">
+      <div class="section-heading"><p class="eyebrow" data-i18n="skills.eyebrow">03 — Stack técnico</p>
+        <h2><span data-i18n="skills.title">Herramientas <br><span class="muted-text">para resolver de principio a fin.</span></span></h2>
+      </div>
+      <div class="skills-layout">
+        <!-- DEVOPS -->
+        <div class="skill-column">
+          <div class="skill-heading"><i class="bx bx-cloud"></i><h3 data-i18n="skill.cloud">Cloud & DevOps</h3></div>
+          <div class="skill-tags"><span>AWS</span><span>Terraform</span><span>Docker</span><span>Kubernetes</span><span>Git</span><span>Ansible</span><span>Jenkins</span><span>Bash</span></div>
+        </div>
+        <!-- DATA ANALYTICS -->
+        <div class="skill-column">
+          <div class="skill-heading"><i class="bx bx-data"></i><h3 data-i18n="skill.data">Data & Databases</h3></div>
+          <div class="skill-tags"><span>Power BI</span><span>Python</span><span>MySQL</span><span>PostgreSQL</span><span>SQL</span></div>
+        </div>
+        <!-- TECH SUPPORT -->
+        <div class="skill-column">
+          <div class="skill-heading"><i class="bx bx-server"></i><h3 data-i18n="skill.system">System & Support</h3></div>
+          <div class="skill-tags"><span>Linux</span><span>Debian</span><span>Ubuntu</span><span>Windows Server</span><span>Vagrant</span><span>PowerShell</span><span>Networking</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section section-tint" id="projects">
+      <div class="container">
+        <div class="section-heading projects-heading">
+          <div>
+            <p class="eyebrow" data-i18n="projects.eyebrow">04 — Proyectos seleccionados</p>
+            <h2><span data-i18n="projects.title">Proyectos<br><span class="muted-text">que puedes revisar y explorar.</span></span></h2>
+          </div>
+          <a class="text-link" href="https://github.com/Samurai829" target="_blank" rel="noopener" data-i18n="projects.github">Ver GitHub completo <i class="bx bx-up-arrow-alt"></i></a>
+        </div>
+        <div class="project-grid">
+          <!-- IAC PROJECT -->
+          <article class="project-card reveal" data-index="0">
+            <a class="project-image" href="https://github.com/Samurai829/aws-staticpage" target="_blank" rel="noopener">
+              <img src="./assets/img/iac1.png" alt="Arquitectura de página estática en AWS" loading="lazy">
+              <span data-i18n="project.iac">Infraestructura como código <i class="bx bx-link-external"></i></span>
+            </a>
+            <div class="project-body">
+              <div class="project-meta"><span>AWS · TERRAFORM</span><span>01</span></div>
+              <h3>AWS Static Pages</h3>
+              <p data-i18n="project.iacDesc">Arquitectura de página estática desplegada con Terraform sobre EC2, VPC y ELB.</p>
+              <a class="project-link" href="https://github.com/Samurai829/aws-staticpage" target="_blank" rel="noopener" data-i18n="project.viewRepo">Ver repositorio <i class="bx bx-right-arrow-alt"></i></a>
             </div>
-            <p class="footer__copy">&#169; Samurai829. All rigths reserved</p>
-            <p class="footer__copy">Developer by Reymer Steven Garcia Acevedo</p>
-        </footer>
+          </article>
+          <!-- WEB PROJECT -->
+          <article class="project-card reveal" data-index="1">
+            <a class="project-image" href="https://github.com/Samurai829/webapp-project" target="_blank" rel="noopener">
+              <img src="./assets/img/webapp.png" alt="Diagrama de proyecto webapp" loading="lazy">
+              <span data-i18n="project.web">Arquitectura web <i class="bx bx-link-external"></i></span>
+            </a>
+            <div class="project-body">
+              <div class="project-meta"><span>VAGRANT · LINUX</span><span>02</span></div>
+              <h3>WebApp Project</h3>
+              <p data-i18n="project.webDesc">Entorno reproducible con Vagrant, RabbitMQ, Nginx, Tomcat, Maven, Memcached y MySQL.</p>
+              <a class="project-link" href="https://github.com/Samurai829/webapp-project" target="_blank" rel="noopener" data-i18n="project.viewRepo">Ver repositorio <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+          </article>
+          <!-- CI / CD -->
+          <article class="project-card reveal" data-index="2">
+            <a class="project-image" href="https://github.com/Samurai829/aws-jenkinsci" target="_blank" rel="noopener">
+              <img src="./assets/img/awsjenkinsci.png" alt="Proyecto Jenkins CI en AWS" loading="lazy">
+              <span data-i18n="project.jenkins">Jenkins CI/CD <i class="bx bx-link-external"></i></span>
+            </a>
+            <div class="project-body">
+              <div class="project-meta"><span>AWS · JENKINS</span><span>03</span></div>
+              <h3>AWS Jenkins CI</h3>
+              <p data-i18n="project.jenkinsDesc">Implementación de Jenkins CI/CD en AWS para automatización del despliegue continuo de aplicaciones.</p>
+              <a class="project-link" href="https://github.com/Samurai829/aws-jenkinsci" target="_blank" rel="noopener" data-i18n="project.viewRepo">Ver repositorio <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+          </article>
+          <!-- DOCKER -->
+          <article class="project-card reveal" data-index="3">
+            <a class="project-image" href="https://github.com/Samurai829/docker-containers" target="_blank" rel="noopener">
+              <img src="./assets/img/containers.png" alt="Contenedores Docker" loading="lazy">
+              <span data-i18n="project.docker">Contenedores <i class="bx bx-link-external"></i></span>
+            </a>
+            <div class="project-body">
+              <div class="project-meta"><span>DOCKER · BASH</span><span>04</span></div>
+              <h3>Docker Containers</h3>
+              <p data-i18n="project.dockerDesc">Práctica de construcción y gestión de imágenes y contenedores para distintos entornos y servicios.</p>
+              <a class="project-link" href="https://github.com/Samurai829/docker-containers" target="_blank" rel="noopener" data-i18n="project.viewRepo">Ver repositorio <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <!-- CERTIFICATIONS -->
+    <section class="section container certifications">
+      <div class="section-heading"><p class="eyebrow" data-i18n="certs.eyebrow">05 — Formación</p>
+        <h2><span data-i18n="certs.title">Certificaciones<br><span class="muted-text">que respaldan el aprendizaje.</span></span></h2>
+      </div>
+      <div class="cert-grid">
+        <!-- Fortinet NSE -->
+        <a class="reveal" data-index="0" href="https://www.credly.com/badges/896684f7-7758-4008-98d8-1b264d8f74f2" target="_blank" rel="noopener">
+          <div class="badge-highlight"></div>
+          <span class="badge-index">01</span>
+          <div class="badge"><img src="./assets/cert/nse2.svg" alt="" loading="lazy"></div>
+          <div class="badge-text">
+            <span class="cert-name">Fortinet NSE 2 Certified In Cybersecurity<i class="bx bx-link-external cert-arrow"></i></span>
+            <span class="cert-org">Fortinet</span>
+          </div>
+        </a>
+        <!-- AWS Certified -->
+        <a class="reveal" data-index="1" href="https://www.credly.com/badges/3df72324-3695-4ec9-a49b-77e5d9a71826" target="_blank" rel="noopener">
+          <div class="badge-highlight"></div>
+          <span class="badge-index">02</span>
+          <div class="badge"><img src="./assets/cert/AWS-certified1.png" alt="" loading="lazy"></div>
+          <div class="badge-text">
+            <span class="cert-name">AWS Certified Cloud Practitioner<i class="bx bx-link-external cert-arrow"></i></span>
+            <span class="cert-org">Amazon Web Services</span>
+          </div>
+        </a>
+        <!-- SCRUM -->
+        <a class="reveal" data-index="2" href="https://www.credly.com/badges/21069eb1-ee61-47fd-a613-9f4dc10fdf7a" target="_blank" rel="noopener">
+          <div class="badge-highlight"></div>
+          <span class="badge-index">03</span>
+          <div class="badge"><img src="./assets/cert/Scrum-certifiedv2.png" alt="" loading="lazy"></div>
+          <div class="badge-text">
+            <span class="cert-name">Scrum Foundation Professional<i class="bx bx-link-external cert-arrow"></i></span>
+            <span class="cert-org">Scrum.org</span>
+          </div>
+        </a>
+        <!-- Fortinet NSE EXAM -->
+        <a class="reveal" data-index="3" href="https://www.credly.com/badges/896684f7-7758-4008-98d8-1b264d8f74f2" target="_blank" rel="noopener">
+          <div class="badge-highlight"></div>
+          <span class="badge-index">04</span>
+          <div class="badge"><img src="./assets/cert/NSE2EXAM.png" alt="" loading="lazy"></div>
+          <div class="badge-text">
+            <span class="cert-name">Fortinet NSE 2 Certified In Cybersecurity<i class="bx bx-link-external cert-arrow"></i></span>
+            <span class="cert-org">Fortinet</span>
+          </div>
+        </a>
+        <!-- Lifelong Learning -->
+        <a class="reveal" data-index="4" href="https://www.credly.com/badges/b0b9404e-f36e-40da-8da2-66a25c20d73d" target="_blank" rel="noopener">
+          <div class="badge-highlight"></div>
+          <span class="badge-index">05</span>
+          <div class="badge"><img src="./assets/cert/CertiProf.png" alt="" loading="lazy"></div>
+          <div class="badge-text">
+            <span class="cert-name">CertiProf Lifelong Learning<i class="bx bx-link-external cert-arrow"></i></span>
+            <span class="cert-org">CertiProf</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-inner">
+        <div>
+          <p class="eyebrow" data-i18n="contact.eyebrow">06 — Contacto</p>
+          <h2><span data-i18n="contact.title">¿Deseas<br><span class="gradient-text">contactarme?</span></span></h2>
+          <p data-i18n="contact.text">Disponible a oportunidades en Data Analytics, DevOps, Cloud y operaciones IT.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:reymer.garcia94@gmail.com" data-i18n="contact.mail">reymer.garcia94@gmail.com <i class="bx bx-arrow-up-right"></i></a>
+          <a class="linkedin-link" href="https://www.linkedin.com/in/reymerstevengarcia/" target="_blank" rel="noopener" data-i18n="contact.linkedin"><i class="bx bxl-linkedin"></i> Conectar en LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#home"><span class="brand-mark">RG</span><span>Reymer Garcia A<span class="accent">.</span></span></a>
+      <p data-i18n="footer.tagline">Data · Cloud · Operations</p>
+      <p>© <span id="year"></span> Reymer García Acevedo</p>
+    </div>
+  </footer>
 
-        <!--===== MAIN JS =====-->
-        <script src="./samurai829_files/js/main.js"></script>
-        <script src="./samurai829_files/js/scripts.js"></script>
-    </body>
+  <script src="./js/main.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script>
+    (function(){
+      "use strict";
+      /* ── Transición de carga ── */
+      var html = document.documentElement;
+      var body = document.body;
+      var mask;
+
+      function init(){
+        if (!body) {
+          setTimeout(init, 50);
+          return;
+        }
+        mask = document.createElement("div");
+        mask.className = "page-mask";
+        mask.innerHTML = '<div class="spinner"></div>';
+        body.appendChild(mask);
+        showPage();
+        initTheme();
+      }
+
+      var loadAttempted = false;
+
+      function showPage(){
+        if (loadAttempted || !mask) return;
+        loadAttempted = true;
+        requestAnimationFrame(function(){
+          html.classList.add("loaded");
+        });
+        setTimeout(function(){
+          if (mask) {
+            mask.classList.add("fade-out");
+            setTimeout(function(){ if (mask && mask.parentNode) mask.parentNode.removeChild(mask); }, 500);
+          }
+        }, 300);
+      }
+
+      /* ── Modo claro / oscuro ── */
+      function initTheme(){
+        var stored = localStorage.getItem("theme");
+        var prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+        if (stored === "light" || (stored === null && prefersLight)) {
+          html.setAttribute("data-theme", "light");
+        } else {
+          html.removeAttribute("data-theme");
+        }
+        updateThemeIcon();
+      }
+
+      function toggleTheme(){
+        var current = html.getAttribute("data-theme");
+        if (current === "light") {
+          html.removeAttribute("data-theme");
+          localStorage.setItem("theme", "dark");
+        } else {
+          html.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+        updateThemeIcon();
+      }
+
+      function updateThemeIcon(){
+        var icon = document.getElementById("theme-toggle");
+        if (!icon) return;
+        var isLight = html.getAttribute("data-theme") === "light";
+        icon.innerHTML = isLight ? '<i class="bx bx-sun"></i>' : '<i class="bx bx-moon"></i>';
+        icon.setAttribute("aria-label", isLight ? "Cambiar a modo oscuro" : "Cambiar a modo claro");
+      }
+
+      var themeToggle = document.getElementById("theme-toggle");
+      if (themeToggle) {
+        themeToggle.addEventListener("click", toggleTheme);
+      }
+
+      if (document.readyState === "complete" || document.readyState === "interactive") {
+        init();
+      } else {
+        window.addEventListener("DOMContentLoaded", init);
+      }
+
+      /* Fallback: forzar visibilidad si algo falló */
+      setTimeout(function(){
+        if (!loadAttempted) showPage();
+      }, 5000);
+
+      /* Transición suave al hacer clic en enlaces internos */
+      document.querySelectorAll("a[href]").forEach(function(link){
+        link.addEventListener("click", function(e){
+          var href = link.getAttribute("href");
+          if (!href || href.startsWith("#") || href.startsWith("mailto:") ||
+              href.startsWith("http://") || href.startsWith("https://") ||
+              href.startsWith("//")) return;
+          if (!href.endsWith(".html") && !href.includes("/index.html")) return;
+          if (mask) mask.classList.add("fade-out");
+          setTimeout(function(){ if (mask) mask.classList.remove("fade-out"); }, 250);
+        });
+      });
+    })();
+  </script>
+  <style>
+    /* Ajuste de layout: botón de tema fuera del nav, alineado a la izquierda */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .site-header .theme-switch {
+      margin-right: auto;
+      margin-left: 18px;
+      background: var(--surface);
+      border-color: var(--line);
+      color: var(--text-2);
+    }
+    .site-header.scrolled .theme-switch {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+    @media (max-width: 980px) {
+      .site-header {
+        justify-content: flex-start;
+      }
+      .site-header .theme-switch {
+        margin-right: 12px;
+        margin-left: 18px;
+      }
+    }
+    @media (max-width: 760px) {
+      .site-header .theme-switch {
+        margin-left: 14px;
+      }
+    }
+  </style>
+</body>
 </html>

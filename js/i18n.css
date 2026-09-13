@@ -1,0 +1,43 @@
+/* ═══════════════════════════════════════════════════════════
+   I18N — Botón de cambio de idioma compacto
+   ═══════════════════════════════════════════════════════════ */
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-2);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-family: var(--font-display);
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.22s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.lang-switch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(168, 241, 90, 0.06) 0%, transparent 60%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.lang-switch:hover {
+  background: var(--surface-2);
+  color: var(--accent);
+  border-color: rgba(168, 241, 90, 0.3);
+  transform: translateY(-1px);
+}
+
+.lang-switch:hover::before { opacity: 1; }
+.lang-switch:active { transform: translateY(0); }

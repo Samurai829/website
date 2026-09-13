@@ -1,67 +1,385 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-    <head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#060912">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Página no encontrada — vuelve al portafolio de Reymer García.">
+  <link rel="canonical" href="https://samurai829.github.io/website/404.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="404 · Página no encontrada | Reymer García">
+  <meta property="og:description" content="La ruta que buscas no existe o fue movida. Nada está roto en mi lado.">
+  <meta property="og:url" content="https://samurai829.github.io/website/404.html">
+  <link rel="icon" type="image/png" href="./assets/perfil/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./js/i18n.css">
+  <title>404 · Página no encontrada | Reymer García Acevedo</title>
+  <style>
+    /* ── Transición de carga ── */
+    html { opacity: 0; transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
+    html.loaded { opacity: 1; }
+    .page-mask {
+      position: fixed; inset: 0; z-index: 9998;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+      pointer-events: none;
+    }
+    .page-mask.fade-out { opacity: 0; }
+    .page-mask .spinner {
+      width: 40px; height: 40px;
+      border: 2px solid var(--line);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* ── Botón de tema — mismo estilo que index.html ── */
+    .theme-switch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--text-2);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.22s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+      font-size: 15px;
+    }
 
-        <link rel="stylesheet" href="./samurai829_files/css/404.css">
+    .theme-switch::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(168, 241, 90, 0.06) 0%, transparent 60%);
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
 
+    .theme-switch:hover {
+      background: var(--surface-2);
+      color: var(--accent);
+      border-color: rgba(168, 241, 90, 0.3);
+      transform: translateY(-1px);
+    }
 
-        
-        <title>404</title>
-    </head>
-    <body>
-        <body class="bg-purple">
-        
-            <div class="stars">
-                <div class="custom-navbar">
-                    <div class="brand-logo">
-                        <img src="./samurai829_files/img/icon.png" width="80px">
-                    </div>
-                    <div class="navbar-links">
-                        <ul>
-                          <li><a href="./index.html" target="_blank">VOLVER</a></li>
-                          <li><a href="mailto:reymer.garcia94@gmail.com" target="_blank">CORREO</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="central-body">
-                    <img class="image-404" src="./samurai829_files/img/404.png" width="500px">
-                    <a href="./index.html" class="btn-go-home" target="_blank">INICIO</a>
-                </div>
-                <div class="objects">
-                    <img class="object_ovni" src="./samurai829_files/img/ovni.svg" width="50px">
-                    <img class="object_rocket" src="./samurai829_files/img/space-ship.svg" width="30px">
-                    <img class="object_planet" src="./samurai829_files/img/planet.svg" width="70px">
-                    <div class="earth-moon">
-                        <img class="object_earth" src="./samurai829_files/img/planet-earth.svg" width="100px">
-                        <img class="object_moon" src="./samurai829_files/img/moon.svg" width="60px">
-                    </div>
-                    <div class="box_astronaut">
-                        <img class="object_astronaut" src="./samurai829_files/img/astronaut.svg" width="240px">
-                    </div>
-                </div>
-                <div class="glowing_stars">
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-                    <div class="star"></div>
-    
-                </div>
-    
-            </div>
-    
-        
+    .theme-switch:hover::before { opacity: 1; }
+    .theme-switch:active { transform: translateY(0); }
 
-        <script src="./samurai829_files/js/404.js"></script>
-        <script src="./samurai829_files/js/main.js"></script>
-    </body>
+    @media (max-width: 760px) {
+      .theme-switch { width: 32px; height: 32px; font-size: 14px; }
+    }
+
+    /* ── Header layout: tema fuera del nav ── */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .site-header .theme-switch {
+      margin-right: auto;
+      margin-left: 18px;
+      background: var(--surface);
+      border-color: var(--line);
+      color: var(--text-2);
+    }
+    .site-header.scrolled .theme-switch {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+    @media (max-width: 980px) {
+      .site-header {
+        justify-content: flex-start;
+      }
+      .site-header .theme-switch {
+        margin-right: 12px;
+        margin-left: 18px;
+      }
+    }
+    @media (max-width: 760px) {
+      .site-header .theme-switch {
+        margin-left: 14px;
+      }
+    }
+
+    /* ── Mini barra de ruta ── */
+    .trust-bar-mini {
+      display: flex; gap: 16px; margin: 18px 0 24px; flex-wrap: wrap;
+    }
+    .trust-bar-mini .text-link {
+      color: var(--text-2); font-size: 13px; font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s, transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .trust-bar-mini .text-link i {
+      font-size: 12px; transition: transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .trust-bar-mini .text-link:hover { color: var(--accent); transform: translateX(3px); }
+    .trust-bar-mini .text-link:hover i { transform: translate(2px, -2px); }
+    @media (max-width: 600px) {
+      .trust-bar-mini { flex-direction: column; gap: 8px; }
+      .trust-bar-mini .text-link { width: 100%; }
+    }
+
+    /* ── Rutas disponibles ── */
+    .routes-container {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+    }
+    .routes-container .nav-link {
+      font-size: 12px; font-weight: 600; color: var(--text);
+      padding: 8px 16px; background: var(--surface);
+      border: 1px solid var(--line); border-radius: 10px;
+      text-decoration: none; white-space: nowrap;
+      transition: transform 0.22s var(--ease-out), background 0.22s, color 0.22s, border-color 0.22s;
+    }
+    .routes-container .nav-link:hover {
+      transform: translateY(-2px);
+      background: var(--surface-2);
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+    @media (max-width: 480px) {
+      .routes-container { flex-direction: column; align-items: center; }
+      .routes-container .nav-link {
+        width: 100%; max-width: 280px; text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background glow orbs -->
+  <div class="light-bg-1" aria-hidden="true"></div>
+  <div class="light-bg-2" aria-hidden="true"></div>
+  <div class="light-bg-3" aria-hidden="true"></div>
+
+  <!-- Progress line -->
+  <div class="progress-line" id="progress-line"></div>
+
+  <!-- Header: brand + theme-switch (igual que index.html) -->
+  <header class="site-header">
+    <button class="theme-switch" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+      <i class="bx bx-moon"></i>
+    </button>
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="./index.html" aria-label="Reymer García, inicio"><span class="brand-mark">RG</span><span>Reymer Garcia A<span class="accent">.</span></span></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO 404 -->
+    <section class="hero container" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="status-dot"></span> <span data-i18n="error.eyebrow">Ruta no encontrada</span></p>
+        <h1 class="hero-title">
+          <span data-i18n="error.title">Página no encontrada</span>
+        </h1>
+        <p class="hero-lead" data-i18n="error.text">La ruta que buscas no existe o fue movida. Nada está roto en mi lado — regresa a lo que sí importa.</p>
+        <div class="trust-bar-mini">
+        </div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="./index.html" data-i18n="error.back">Volver al inicio <i class="bx bx-right-arrow-alt"></i></a>
+          <a class="button button-ghost" href="mailto:reymer.garcia94@gmail.com" data-i18n="error.mailSubject">Contactarme <i class="bx bx-envelope"></i></a>
+        </div>
+        <div class="social-row" aria-label="Perfiles profesionales">
+          <a href="https://www.linkedin.com/in/reymerstevengarcia/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://github.com/Samurai829" target="_blank" rel="noopener" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+          <a href="https://gitlab.com/Samurai829" target="_blank" rel="noopener" aria-label="GitLab"><i class="bx bxl-gitlab"></i></a>
+          <span class="social-caption" data-i18n="hero.connect">Conecta conmigo</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-delay">
+        <div class="light-streak a" aria-hidden="true"></div>
+        <div class="light-streak b" aria-hidden="true"></div>
+        <div class="light-streak c" aria-hidden="true"></div>
+        <div class="visual-glow"></div>
+        <div class="hero-ring" aria-hidden="true"></div>
+
+        <!-- Profile frame con SVG idéntico al original -->
+        <div class="profile-frame">
+          <div class="frame-glow"></div>
+          <div class="img-glow"></div>
+          <div class="img-shade"></div>
+          <span class="frame-label" data-i18n="error.frameLabel">404 · no encontrado</span>
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="avatar-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0d1225"/>
+                <stop offset="100%" stop-color="#182040"/>
+              </linearGradient>
+              <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a8f15a"/>
+                <stop offset="50%" stop-color="#79a9ff"/>
+                <stop offset="100%" stop-color="#a8f15a"/>
+              </linearGradient>
+            </defs>
+            <circle cx="100" cy="100" r="72" fill="none" opacity="0.15">
+              <animate attributeName="r" values="72;78;72" dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
+              <animate attributeName="opacity" values="0.12;0.22;0.12" dur="3s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.4 0 0.6 1;0.4 0 0.6 1"/>
+            </circle>
+            <circle cx="100" cy="100" r="58" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+            <circle cx="100" cy="100" r="58" fill="none" stroke="url(#ring-grad)" stroke-width="2.5" stroke-dasharray="0 365" stroke-linecap="round">
+              <animate attributeName="stroke-dasharray" from="0 365" to="365 0" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+            </circle>
+            <g transform="translate(60,72)">
+              <rect x="0" y="0" width="80" height="80" rx="12" fill="url(#avatar-grad)" stroke="rgba(168,241,90,0.1)" stroke-width="1"/>
+              <g stroke="rgba(168,241,90,0.08)" stroke-width="0.5">
+                <line x1="0" y1="20" x2="80" y2="20"/>
+                <line x1="0" y1="40" x2="80" y2="40"/>
+                <line x1="0" y1="60" x2="80" y2="60"/>
+                <line x1="20" y1="0" x2="20" y2="80"/>
+                <line x1="40" y1="0" x2="40" y2="80"/>
+                <line x1="60" y1="0" x2="60" y2="80"/>
+              </g>
+              <g transform="translate(22,22)">
+                <path d="M18 4 L30 12 L30 22 C30 30 22 34 22 34 C22 34 14 30 14 22 L14 12 Z" fill="rgba(168,241,90,0.06)" stroke="rgba(168,241,90,0.3)" stroke-width="1.2"/>
+                <line x1="6" y1="6" x2="30" y2="30" stroke="#a8f15a" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+                <line x1="30" y1="6" x2="6" y2="30" stroke="#a8f15a" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+              </g>
+            </g>
+            <circle cx="100" cy="10" r="3" fill="#a8f15a" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" dur="1.6s" begin="1.3s" fill="freeze"/>
+              <animate attributeName="cy" from="10" to="64" dur="1.6s" begin="1.3s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.3 0.1 0.4 1"/>
+            </circle>
+            <circle cx="100" cy="190" r="2.5" fill="#79a9ff" opacity="0">
+              <animate attributeName="opacity" from="0" to="1" dur="1.6s" begin="1.5s" fill="freeze"/>
+              <animate attributeName="cy" from="190" to="136" dur="1.6s" begin="1.5s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.3 0.1 0.4 1"/>
+            </circle>
+          </svg>
+        </div>
+
+        <div class="floating-card floating-card-top">
+          <i class="bx bx-error" aria-hidden="true"></i>
+          <span><b data-i18n="error.floatingTitle">404</b><small data-i18n="error.floatingSub">Recurso no encontrado</small></span>
+        </div>
+        <div class="floating-card floating-card-bottom">
+          <span class="years-num" data-i18n="error.bottomText">Vuelve</span><span class="years-text" data-i18n="error.bottomSub">al inicio seguro</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rutas disponibles -->
+    <section class="trust-bar"><div class="container trust-inner">
+      <span data-i18n="error.routes">Rutas disponibles</span>
+      <div class="routes-container">
+        <a class="nav-link" href="./index.html" data-i18n="error.routesHome">INICIO</a>
+        <a class="nav-link" href="./index.html#about" data-i18n="error.routesProfile">PERFIL</a>
+        <a class="nav-link" href="mailto:reymer.garcia94@gmail.com" data-i18n="error.routesContact">CONTACTO</a>
+      </div>
+    </div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">RG</span>
+        <span>Reymer Garcia A<span class="accent">.</span></span>
+      </a>
+      <p data-i18n="footer.tagline">Data · Cloud · Operations</p>
+      <p>© <span id="year"></span> Reymer García Acevedo</p>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script>
+    (function(){
+      "use strict";
+      var html = document.documentElement;
+      var body = document.body;
+      var mask;
+
+      function init(){
+        if (!body) { setTimeout(init, 50); return; }
+        mask = document.createElement("div");
+        mask.className = "page-mask";
+        mask.innerHTML = '<div class="spinner"></div>';
+        body.appendChild(mask);
+        showPage();
+        initTheme();
+      }
+
+      var loadAttempted = false;
+      function showPage(){
+        if (loadAttempted || !mask) return;
+        loadAttempted = true;
+        requestAnimationFrame(function(){ html.classList.add("loaded"); });
+        setTimeout(function(){
+          if (mask) {
+            mask.classList.add("fade-out");
+            setTimeout(function(){ if (mask && mask.parentNode) mask.parentNode.removeChild(mask); }, 500);
+          }
+        }, 300);
+      }
+
+      function initTheme(){
+        var stored = localStorage.getItem("theme");
+        var prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+        if (stored === "light" || (stored === null && prefersLight)) {
+          html.setAttribute("data-theme", "light");
+        } else {
+          html.removeAttribute("data-theme");
+        }
+        updateThemeIcon();
+      }
+
+      function toggleTheme(){
+        var current = html.getAttribute("data-theme");
+        if (current === "light") {
+          html.removeAttribute("data-theme");
+          localStorage.setItem("theme", "dark");
+        } else {
+          html.setAttribute("data-theme", "light");
+          localStorage.setItem("theme", "light");
+        }
+        updateThemeIcon();
+      }
+
+      function updateThemeIcon(){
+        var icon = document.getElementById("theme-toggle");
+        if (!icon) return;
+        var isLight = html.getAttribute("data-theme") === "light";
+        icon.innerHTML = isLight ? '<i class="bx bx-sun"></i>' : '<i class="bx bx-moon"></i>';
+        icon.setAttribute("aria-label", isLight ? "Cambiar a modo oscuro" : "Cambiar a modo claro");
+      }
+
+      var themeToggle = document.getElementById("theme-toggle");
+      if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
+
+      if (document.readyState === "complete" || document.readyState === "interactive") {
+        init();
+      } else {
+        window.addEventListener("DOMContentLoaded", init);
+      }
+
+      setTimeout(function(){ if (!loadAttempted) showPage(); }, 5000);
+
+      document.querySelectorAll("a[href]").forEach(function(link){
+        link.addEventListener("click", function(e){
+          var href = link.getAttribute("href");
+          if (!href || href.startsWith("#") || href.startsWith("mailto:") ||
+              href.startsWith("http://") || href.startsWith("https://") ||
+              href.startsWith("//")) return;
+          if (!href.endsWith(".html") && !href.includes("/index.html")) return;
+          if (mask) mask.classList.add("fade-out");
+          setTimeout(function(){ if (mask) mask.classList.remove("fade-out"); }, 250);
+        });
+      });
+    })();
+  </script>
+</body>
 </html>
